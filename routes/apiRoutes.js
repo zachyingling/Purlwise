@@ -1,24 +1,21 @@
-var db = require("../models");
+//var db = require("../models");
+
+var passport = require("../config/passport");
 
 module.exports = function(app) {
   // Get all examples
-  app.get("/api/examples", function(req, res) {
-    db.Example.findAll({}).then(function(dbExamples) {
-      res.json(dbExamples);
-    });
-  });
+  app.get(
+    "/auth/github",
+    passport.authenticate("github", { scope: ["user:email"] })
+  );
 
-  // Create a new example
-  app.post("/api/examples", function(req, res) {
-    db.Example.create(req.body).then(function(dbExample) {
-      res.json(dbExample);
-    });
-  });
-
-  // Delete an example by id
-  app.delete("/api/examples/:id", function(req, res) {
-    db.Example.destroy({ where: { id: req.params.id } }).then(function(dbExample) {
-      res.json(dbExample);
-    });
-  });
+  app.get(
+    "/auth/callback",
+    passport.authenticate("github", { failureRedirect: "/login" }, function(
+      req,
+      res
+    ) {
+      res.redirect("/home");
+    })
+  );
 };
