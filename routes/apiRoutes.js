@@ -1,21 +1,29 @@
 //var db = require("../models");
 
-var passport = require("../config/passport");
+var passport = require("../public/js/passport");
 
 module.exports = function(app) {
-  // Get all examples
+  app.all("/auth/github", function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "https://github.com");
+    res.header("Access-Control-Allow-Headers", "X-Requested-With");
+    next();
+  });
+  app.all("/auth/callback", function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "https://github.com");
+    res.header("Access-Control-Allow-Headers", "X-Requested-With");
+    next();
+  });
+
   app.get(
     "/auth/github",
-    passport.authenticate("github", { scope: ["user:email"] })
+    passport.authenticate("github", { scope: ["read:user", "user:email"] })
   );
 
   app.get(
     "/auth/callback",
-    passport.authenticate("github", { failureRedirect: "/login" }, function(
-      req,
-      res
-    ) {
-      res.redirect("/home");
+    passport.authenticate("github", {
+      successRedirect: "/home",
+      failureRedirect: "/login"
     })
   );
 };
