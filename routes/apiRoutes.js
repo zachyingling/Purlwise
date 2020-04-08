@@ -20,10 +20,17 @@ module.exports = function(app) {
   );
 
   app.get(
-    "/auth/callback",
-    passport.authenticate("github", {
-      successRedirect: "/home",
-      failureRedirect: "/login"
-    })
+    "/auth/github/callback",
+    passport.authenticate(
+      "github",
+      {
+        successRedirect: "/home",
+        failureRedirect: "/login"
+      },
+      function(req, res) {
+        console.log(req);
+        console.log(res);
+      }
+    )
   );
 };

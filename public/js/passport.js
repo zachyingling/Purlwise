@@ -14,7 +14,7 @@ passport.use(
     {
       clientID: "1a0c9a6167a639262425",
       clientSecret: "ceabf4a109a5e27f9327c78c04a74e515f443737",
-      callbackURL: "http://localhost:3000/auth/github/callback"
+      callbackURL: "http://localhost:3000/auth/callback"
     },
     function(accessToken, refreshToken, profile, done) {
       // asynchronous verification, for effect...
