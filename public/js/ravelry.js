@@ -1,10 +1,10 @@
+require("dotenv").config();
 var Ravelry = require("ravelry");
 var rav = Ravelry.basic({
-  ravAccessKey: "004da952631a901b56abfabce4da0fde", // also called Username in Ravelry Pro
-  ravPersonalKey: "PsxTg2NYmxt5TfVyEY6a677pECo-KsvrRYM_FjCZ"
+  ravAccessKey: process.env.RAVELRY_ACCESS,
+  ravPersonalKey: process.env.RAVELRY_PERSONAL
 });
 var allPatternIDs = [];
-
 var randomNums = [];
 // var knitCrochet = ["Knitting", "Crochet"];
 // var articlesOfClothing = ["Socks", "Mittens", "Sweater", "Hats", "Scarf"];
