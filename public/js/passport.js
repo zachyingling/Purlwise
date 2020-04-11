@@ -1,6 +1,5 @@
 var passport = require("passport"),
   GitHubStrategy = require("passport-github2").Strategy;
-// var Users = require("../../models/users");
 var db =  require("../../models");
 
 passport.serializeUser(function(user, done) {
@@ -20,25 +19,19 @@ passport.use(
     },
     function(accessToken, refreshToken, profile, done) {
       var gitUserName = profile.username;
-      // asynchronous verification, for effect...
-      //process.nextTick(function() {
-        // To keep the example simple, the user's GitHub profile is returned to
-        // represent the logged-in user.  In a typical application, you would want
-        // to associate the GitHub account with a user record in your database,
-        // and return that user instead.
-        db.User.findOrCreate({
-          where: { username: gitUserName },
-          defaults: { username: gitUserName }
-        }).then(([user, created]) => {
-          console.log(user.get({
-            plain: true
-          }))
-          console.log(created)
-          return done(null, profile);
-        }).error(function(err){
-          console.log('Error occured' + err);
-       });
-      // });
+      var gitProPic = profile.photos[0].value;
+      db.User.findOrCreate({
+        where: { username: gitUserName },
+        defaults: { profilePicUrl: gitProPic }
+      }).then(([user, created]) => {
+        console.log(user.get({
+          plain: true
+        }))
+        console.log(created)
+        return done(null, profile);
+      }).error(function(err){
+        console.log('Error occured' + err);
+      });
     }
   )
 );
