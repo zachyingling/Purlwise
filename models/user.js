@@ -2,29 +2,15 @@
 module.exports = function(sequelize, DataTypes) {
   var User = sequelize.define("User", {
     //fetch from passport
-    userName: {
+    username: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
+      unique: true
     },
     //fetch from passport
     password: {
       type: DataTypes.STRING,
       allowNull: false
-    },
-    //create an input form and fetch from there
-    twitter: {
-      type: DataTypes.STRING,
-      allowNull: true
-    },
-    //create an input form and fetch from there
-    facebook: {
-      type: DataTypes.STRING,
-      allowNull: true
-    },
-    //create an input form and fetch from there
-    instagram: {
-      type: DataTypes.STRING,
-      allowNull: true
     }
   });
 

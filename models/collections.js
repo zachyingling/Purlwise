@@ -1,14 +1,17 @@
 //Creates the table that stores user collections and the patterns therein ("child")
 module.exports = function(sequelize, DataTypes) {
   var Collection = sequelize.define("Collection", {
+    username: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
     nameOfCollection: {
       type: DataTypes.STRING,
       allowNull: false
     },
     patternId: {
       type: DataTypes.INTEGER,
-      allowNull: false,
-      defaultValue: 0
+      allowNull: false
     }
   });
 

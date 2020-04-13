@@ -1,16 +1,19 @@
-//Creates the table that stores the patterns within the collections ("child")
+//Creates the table that stores the patterns within the collections ("child").
+
 module.exports = function(sequelize, DataTypes) {
   var Pattern = sequelize.define("Pattern", { 
 //must fetch from the API
     patternId: {
       type: DataTypes.INTEGER,
-      allowNull: false,
-      defaultValue: 0
+      allowNull: false
     },
 //must fetch from the API
     patternUrl: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
+      validate: {
+       isUrl: true
+      }
     }
   });
   
