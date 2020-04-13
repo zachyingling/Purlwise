@@ -11,8 +11,8 @@ module.exports = function(app) {
     // console.log('Redirected home');
     // console.log(userInfo);
     res.render("home", {
-        user: userInfo
-      });
+      user: userInfo
+    });
   });
 
   // app.get("/login", function(req, res) {
@@ -45,5 +45,5 @@ module.exports = function(app) {
 
   app.get("/error", (req, res) => {
     res.render("error");
-  })
+  });
 };

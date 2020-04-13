@@ -1,21 +1,26 @@
+/* eslint-disable no-unused-vars */
 var passport = require("passport"),
   GitHubStrategy = require("passport-github2").Strategy;
-var db =  require("../../models");
+var db = require("../../models");
 
 passport.serializeUser(function(user, done) {
   done(null, user.id);
 });
 
-passport.deserializeUser( async(id, done) => {
-  db.User.findOne({ where: {
-    uid: id
-  }}).then(user => {
-    // console.log(user);
-    done(null, user);
-  }).catch(err => {
-    console.error(err);
-    done(err);
+passport.deserializeUser(async (id, done) => {
+  db.User.findOne({
+    where: {
+      uid: id
+    }
   })
+    .then(user => {
+      // console.log(user);
+      done(null, user);
+    })
+    .catch(err => {
+      console.error(err);
+      done(err);
+    });
   // done(null, obj);
 });
 
@@ -32,15 +37,17 @@ passport.use(
       db.User.findOrCreate({
         where: { username: gitUserName },
         defaults: { uid: profile.id, profilePicUrl: gitProPic }
-      }).then(([user, created]) => {
-        // console.log(user.get({
-        //   plain: true
-        // }))
-        // console.log(created)
-        return done(null, profile);
-      }).error(function(err){
-        console.log('Error occured' + err);
-      });
+      })
+        .then(([user, created]) => {
+          // console.log(user.get({
+          //   plain: true
+          // }))
+          // console.log(created)
+          return done(null, profile);
+        })
+        .error(function(err) {
+          console.log("Error occured" + err);
+        });
     }
   )
 );

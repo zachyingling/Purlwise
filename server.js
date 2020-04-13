@@ -10,8 +10,8 @@ var app = express();
 var PORT = process.env.PORT || 3000;
 
 // Middleware
-var session = require("express-session"),
-    bodyParser = require("body-parser");
+var session = require("express-session");
+var bodyParser = require("body-parser");
 
 app.use(express.static("public"));
 app.use(session({ secret: "cats", resave: true, saveUninitialized: true }));
@@ -31,7 +31,6 @@ app.engine(
   })
 );
 app.set("view engine", "handlebars");
-
 
 // Routes
 require("./routes/apiRoutes")(app);

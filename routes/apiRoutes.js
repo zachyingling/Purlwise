@@ -25,10 +25,10 @@ module.exports = function(app) {
     }),
     function(req, res) {
       // Successful authentication
-      res.redirect('/home');
+      res.redirect("/home");
     }
   );
-  
+
   app.get("/api/patterns", function(req, res) {
     ravelry(
       req.query.knitOrCrotchet,
@@ -39,5 +39,4 @@ module.exports = function(app) {
       }
     );
   });
-
 };
