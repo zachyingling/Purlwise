@@ -22,12 +22,11 @@ module.exports = function(app) {
   app.get(
     "/auth/github/callback",
     passport.authenticate("github", {
-      successRedirect: "/home",
       failureRedirect: "/login"
     }),
     function(req, res) {
       // Successful authentication
-      res.json(req.user);
+      res.redirect('/home');
     }
   );
 };

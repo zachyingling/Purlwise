@@ -7,7 +7,12 @@ module.exports = function(app) {
   });
 
   app.get("/home", function(req, res) {
-    res.render("home");
+    var userInfo = req.user.dataValues;
+    // console.log('Redirected home');
+    // console.log(userInfo);
+    res.render("home", {
+        user: userInfo
+      });
   });
 
   app.get("/login", function(req, res) {
@@ -23,4 +28,8 @@ module.exports = function(app) {
   app.get("*", function(req, res) {
     res.render("404");
   });
+
+  app.get("/error", (req, res) => {
+    res.render("error");
+  })
 };

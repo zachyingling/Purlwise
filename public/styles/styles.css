@@ -1,3 +1,9 @@
 .list-group-item {
   line-height: 2.5;
 }
+
+.profImg {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+}

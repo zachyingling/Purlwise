@@ -1,33 +1,23 @@
 require("dotenv").config();
 var express = require("express");
 var exphbs = require("express-handlebars");
-var bodyParser = require("body-parser");
-var sequelize = require("sequelize");
-var passport = require("./public/js/passport");
-var session = require("express-session");
-var cors = require("cors");
-var methodOverride = require("method-override");
-var partials = require("express-partials");
 
+var passport = require("./public/js/passport");
 // var db = require("./models");
 
 var app = express();
 var PORT = process.env.PORT || 3000;
 
 // Middleware
-app.use(express.urlencoded({ extended: false }));
-app.use(express.json());
+var session = require("express-session"),
+    bodyParser = require("body-parser");
+
 app.use(express.static("public"));
-app.use(partials());
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(cors());
-app.use(bodyParser.json());
-app.use(methodOverride());
-app.use(
-  session({ secret: "keyboard cat", resave: true, saveUninitialized: true })
-);
+app.use(session({ secret: "cats", resave: true, saveUninitialized: true }));
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(passport.initialize());
 app.use(passport.session());
+
 
 // Handlebars
 app.engine(
@@ -37,6 +27,7 @@ app.engine(
   })
 );
 app.set("view engine", "handlebars");
+
 
 // Routes
 require("./routes/apiRoutes")(app);
