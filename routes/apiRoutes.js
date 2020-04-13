@@ -1,5 +1,4 @@
-//var db = require("../models");
-
+var ravelry = require("../ravelry.js");
 var passport = require("../public/js/passport");
 
 module.exports = function(app) {
@@ -29,4 +28,16 @@ module.exports = function(app) {
       res.redirect('/home');
     }
   );
+  
+  app.get("/api/patterns", function(req, res) {
+    ravelry(
+      req.query.knitOrCrotchet,
+      req.query.yarnWeight,
+      req.query.articleOfClothing,
+      function(data) {
+        res.json(data);
+      }
+    );
+  });
+
 };

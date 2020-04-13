@@ -24,6 +24,14 @@ module.exports = function(app) {
     res.redirect("/");
   });
 
+  app.get("/generate", function(req, res) {
+    res.render("generate");
+  });
+
+  app.get("/profile", function(req, res) {
+    res.render("profile");
+  });
+
   // Render 404 page for any unmatched routes
   app.get("*", function(req, res) {
     res.render("404");
