@@ -1,8 +1,6 @@
 var db = require("../models");
-// var passport = require("..config/passport");
-
-//Zach's API
 var ravelry = require("../ravelry.js");
+var passport = require("../public/js/passport");
 
 module.exports = function(app) {
   //Zach's route
@@ -32,23 +30,10 @@ module.exports = function(app) {
       });
   });
 
-
 //Get all users
   app.get("/api/user", function(req, res) {
     db.User.findAll({}).then(function(dbUser) {
       res.json(dbUser);
-    });
-  });
-  // Get all collection
-  app.get("/api/collection", function(req, res) {
-    db.Collection.findAll({}).then(function(dbCollection) {
-      res.json(dbCollection);
-    });
-  });
-//Get all patterns
-  app.get("/api/pattern", function(req, res) {
-    db.Pattern.findAll({}).then(function(dbPattern) {
-      res.json(dbPattern);
     });
   });
 
@@ -58,43 +43,51 @@ module.exports = function(app) {
       res.json(dbUser);
     });
   });
-  // Create a new collection
-  app.post("/api/collection", function(req, res) {
-    db.Collection.create(req.body).then(function(dbCollection) {
-      res.json(dbCollection);
-    });
-  });
-//Create a new pattern
-  app.post("/api/pattern", function(req, res) {
-    db.Pattern.create(req.body).then(function(dbPattern) {
-      res.json(dbPattern);
-    });
-  });
 
-//Delete a user by id
-  app.delete("/api/user/:id", function(req, res) {
-    db.User.destroy({ where: { id: req.params.id } }).then(function(
-      dbUser
-    ) {
+  //Delete a user by id
+  app.delete("/api/user/:id", function (req, res) {
+    db.User.destroy({ where: { id: req.params.id } }).then(function(dbUser) {
       res.json(dbUser);
     });
   });
 
-  // Delete an collection by id
-  app.delete("/api/collection/:id", function(req, res) {
-    db.Collection.destroy({ where: { id: req.params.id } }).then(function(
-      dbCollection
-    ) {
-      res.json(dbCollection);
-    });
+//THIS WAS THE NEWEST CHANGES, WHAT DO I NEED TO KEEP????
+  app.all("/auth/github", function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "https://github.com");
+    res.header("Access-Control-Allow-Headers", "X-Requested-With");
+    next();
+  });
+  app.all("/auth/callback", function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "https://github.com");
+    res.header("Access-Control-Allow-Headers", "X-Requested-With");
+    next();
   });
 
-//Delete a pattern by id
-  app.delete("/api/pattern/:id", function(req, res) {
-    db.Pattern.destroy({ where: { id: req.params.id } }).then(function(
-      dbPattern
-    ) {
-      res.json(dbPattern);
-    });
-  });
-};
+  app.get(
+    "/auth/github",
+    passport.authenticate("github", { scope: ["read:user", "user:email"] })
+  );
+
+  app.get(
+    "/auth/github/callback",
+    passport.authenticate("github", {
+      failureRedirect: "/login"
+    }),
+    function(req, res) {
+      // Successful authentication
+      res.redirect("/home");
+    }
+  );
+
+  app.get("/api/patterns", function(req, res) {
+    ravelry(
+      req.query.knitOrCrotchet,
+      req.query.yarnWeight,
+      req.query.articleOfClothing,
+      function(data) {
+        res.json(data);
+      }
+    );
+  }
+ );
+}

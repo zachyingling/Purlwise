@@ -1,0 +1,158 @@
+{{!-- Profile Stuff --}}
+<div class="container">
+    <div class="row">
+        <div class="col"></div>
+        <div class="col-4">
+            <img class="profImg" src={{user.profilePicUrl}}>
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                {{user.username}}
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="/logout">Logout</a>
+            </div>
+        </div>
+    </div>
+</div>
+{{!--  --}}
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
+  <span class="navbar-brand mb-0 h1">Navbar</span>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="/">Home</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="/generate" onclick="return false;">Generate <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/profile">Profile</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<main class="bg-secondary">
+  <form class="form-inline p-4">
+    <select name="knit-or-crochet" class="custom-select custom-select-lg mb-3" id="knit-or-crochet">
+      <option selected>Kniting or Crochet</option>
+      <option value="Kniting">Kniting</option>
+      <option value="Crochet">Crochet</option>
+    </select>
+
+    <select name="yarnWeight" class="custom-select custom-select-sm mb-3" id="yarnWeight">
+      <option selected>Select Yarn Weight</option>
+      <option value="Aran">Aran</option>
+      <option value="Bulky">Bulky</option>
+      <option value="Super Bulky">Super Bulky</option>
+      <option value="Fingering">Fingering</option>
+      <option value="Light Fingering">Light Fingering</option>
+      <option value="Lace">Lace</option>
+      <option value="Cobweb">Cobweb</option>
+      <option value="Sport">Sport</option>
+      <option value="DK">DK</option>
+      <option value="Worsted">Worsted</option>
+      <option value="Jumbo">Jumbo</option>
+      <option value="Any gauge">Any gauge</option>
+    </select>
+
+    <select name="articleOfClothing" class="custom-select custom-select-sm mb-3" id="articleOfClothing">
+      <option selected>Select Article of Clothing</option>
+      <option value="Socks">Socks</option>
+      <option value="Mittens">Mittens</option>
+      <option value="Sweater">Sweater</option>
+      <option value="Hats">Hats</option>
+      <option value="Scarf">Scarf</option>
+    </select>
+
+    <input type="button" class="btn btn-primary mb-2" id="generatePatterns" value="Submit" />
+  </form>
+
+  <div class="spinner d-none" id="spinnerDiv"></div>
+
+  <div class="container bg-info d-none" id="patternsContainer">
+    <div class="row justify-content-around">
+      <div class="col-4 p-2">
+
+        <div class="card" style="width: 18rem;">
+          <img class="card-img-top imgForCard" id="patternImage1" src="" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title" id="patternName1">Card title</h5>
+            <p class="card-text" id="patternAuthor1">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a href="" id="patternLink1" class="btn btn-primary" target="_blank">Link</a>
+            <a data-id="" id="patternSave1" class="btn btn-primary">Save</a>
+          </div>
+        </div>
+
+      </div>
+      <div class="col-4 p-2">
+
+        <div class="card" style="width: 18rem;">
+          <img class="card-img-top imgForCard" id="patternImage2" src="" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title" id="patternName2">Card title</h5>
+            <p class="card-text" id="patternAuthor2">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a href="" id="patternLink2" class="btn btn-primary" target="_blank">Link</a>
+            <a data-id="" id="patternSave2" class="btn btn-primary">Save</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div class="row justify-content-around">
+      <div class="col-4 p-2">
+
+        <div class="card" style="width: 18rem;">
+          <img class="card-img-top imgForCard" id="patternImage3" src="" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title" id="patternName3">Card title</h5>
+            <p class="card-text" id="patternAuthor3">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a href="" id="patternLink3" class="btn btn-primary" target="_blank">Link</a>
+            <a data-id="" id="patternSave3" class="btn btn-primary">Save</a>
+          </div>
+        </div>
+
+      </div>
+      <div class="col-4 p-2">
+
+        <div class="card" style="width: 18rem;">
+          <img class="card-img-top imgForCard" id="patternImage4" src="" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title" id="patternName4">Card title</h5>
+            <p class="card-text" id="patternAuthor4">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a href="" id="patternLink4" class="btn btn-primary" target="_blank">Link</a>
+            <a data-id="" id="patternSave4" class="btn btn-primary">Save</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div class="row justify-content-around">
+      <div class="col-4 p-2">
+
+        <div class="card" style="width: 18rem;">
+          <img class="card-img-top imgForCard" id="patternImage5" src="" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title" id="patternName5">Card title</h5>
+            <p class="card-text" id="patternAuthor5">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a href="" id="patternLink5" class="btn btn-primary" target="_blank">Link</a>
+            <a data-id="" id="patternSave5" class="btn btn-primary">Save</a>
+          </div>
+        </div>
+
+      </div>
+      <div class="col-4 p-2">
+
+        <div class="card" style="width: 18rem;">
+          <img class="card-img-top imgForCard" id="patternImage6" src="" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title" id="patternName6">Card title</h5>
+            <p class="card-text" id="patternAuthor6">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a href="" id="patternLink6" class="btn btn-primary" target="_blank">Link</a>
+            <a data-id="" id="patternSave6" class="btn btn-primary">Save</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</main>
+<script type="text/javascript" src="/js/ravelryFront.js"></script>
