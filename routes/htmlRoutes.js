@@ -15,9 +15,9 @@ module.exports = function(app) {
       });
   });
 
-  app.get("/login", function(req, res) {
-    res.render("login");
-  });
+  // app.get("/login", function(req, res) {
+  //   res.render("login");
+  // });
 
   app.get("/logout", function(req, res) {
     req.logout();
@@ -25,11 +25,17 @@ module.exports = function(app) {
   });
 
   app.get("/generate", function(req, res) {
-    res.render("generate");
+    var userInfo = req.user.dataValues;
+    res.render("generate", {
+      user: userInfo
+    });
   });
 
   app.get("/profile", function(req, res) {
-    res.render("profile");
+    var userInfo = req.user.dataValues;
+    res.render("profile", {
+      user: userInfo
+    });
   });
 
   // Render 404 page for any unmatched routes
