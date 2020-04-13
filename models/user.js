@@ -1,4 +1,3 @@
-//Creates the table that stores user login and profile information ("parent")
 module.exports = function(sequelize, DataTypes) {
   var User = sequelize.define("User", {
     //fetch from passport
@@ -6,6 +5,12 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: false,
       unique: true
+    },
+    uid: {
+      type: DataTypes.STRING
+    },
+    profilePicUrl: {
+     type: DataTypes.STRING
     },
     //fetch from passport
     password: {
