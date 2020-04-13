@@ -11,12 +11,8 @@ module.exports = function (app) {
 
   app.get("/profile", function (req, res) {
     res.render("profile");
-
-    //THIS IS THE INCOMING CHANGES WHAT DO I KEEP?
-
-    
-module.exports = function(app) {
-  // Load index page
+  });
+  // Load index page (NATHAN'S CODE BEGINS HERE)
   app.get("/", function(req, res) {
     res.render("index", {
       msg: "Welcome!"
