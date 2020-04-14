@@ -32,7 +32,7 @@ passport.use(
       clientSecret: "ceabf4a109a5e27f9327c78c04a74e515f443737",
       // callbackURL: "https://project-2-znnm.herokuapp.com/auth/github/callback"
       // USE THIS \/ whenever you are debugging, but if committing to master make sure you commit this one ^
-      callbackURL: "/auth/github/callback"
+      callbackURL: "auth/github/callback"
     },
     function(accessToken, refreshToken, profile, done) {
       var gitUserName = profile.username;
