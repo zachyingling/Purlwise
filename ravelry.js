@@ -13,7 +13,7 @@ module.exports = (knitOrCrochet, yarnWeight, articleOfClothing, cb) => {
         craft: knitOrCrochet,
         weight: yarnWeight,
         // eslint-disable-next-line camelcase
-        page_size: 1000
+        page_size: 500
       })
       .then(results => {
         var allPatternIDs = [];
