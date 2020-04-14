@@ -1,8 +1,21 @@
-{{!-- Profile Stuff --}}
-<div id="topHeader" class="container">
-    <div class="row">
-        <div class="col"></div>
-        <div class="col-4">
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #94c481;">
+    <div class="row" style="width: 100%">
+        <div class="col">
+            <div class="collapse navbar-collapse" id="navbarNav" style="padding: 12px 0px">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/home">Home<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/generate">Generate</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/profile" onclick="return false;">Profile</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-4" style="display: inherit;">
             <img class="profImg" src={{user.profilePicUrl}}>
             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 {{user.username}}
@@ -12,20 +25,4 @@
             </div>
         </div>
     </div>
-</div>
-{{!--  --}}
-<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
-  <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link" href="/home">Home</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/generate">Generate</a>
-      </li>
-      <li class="nav-item active">
-        <a class="nav-link" href="/profile" onclick="return false;">Profile <span class="sr-only">(current)</span></a>
-      </li>
-    </ul>
-  </div>
 </nav>
