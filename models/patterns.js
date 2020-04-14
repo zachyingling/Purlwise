@@ -1,6 +1,6 @@
 //Creates the table that stores the patterns within the collections ("child").
 
-module.exports = function (sequelize, DataTypes) {
+module.exports = function(sequelize, DataTypes) {
   var Pattern = sequelize.define("Pattern", {
     patternId: {
       type: DataTypes.INTEGER,
@@ -17,7 +17,7 @@ module.exports = function (sequelize, DataTypes) {
   });
 
   //belongsTo means this is the child of the parent (collection)
-  Pattern.associate = function (models) {
+  Pattern.associate = function(models) {
     Pattern.belongsTo(models.Collection, {
       onDelete: "cascade",
       foreignKey: {

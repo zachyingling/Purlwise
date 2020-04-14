@@ -1,12 +1,10 @@
 $(document).ready(() => {
-
   $(".save-btn").on("click", function() {
-    var patternId = $(this).attr
-    ("data-id");
+    var patternId = $(this).attr("data-id");
     var idValue = $(this).attr("id");
-var numberValue = idValue.substring(11);
-var nameValue = $("#patternName" + numberValue).text();
-var urlValue = $("#patternLink" + numberValue).attr("href");
+    var numberValue = idValue.substring(11);
+    var nameValue = $("#patternName" + numberValue).text();
+    var urlValue = $("#patternLink" + numberValue).attr("href");
     $.ajax({
       url: "/api/patterns",
       method: "POST",
@@ -22,7 +20,7 @@ var urlValue = $("#patternLink" + numberValue).attr("href");
         console.log("Text status: " + textStatus);
         console.log("error: " + errorThrown);
       }
-    }).then(function(data){
+    }).then(function(data) {
       console.log(data);
     });
   });

@@ -1,5 +1,5 @@
 //Creates the table that stores user collections and the patterns therein ("child")
-module.exports = function (sequelize, DataTypes) {
+module.exports = function(sequelize, DataTypes) {
   var Collection = sequelize.define("Collection", {
     nameOfCollection: {
       type: DataTypes.STRING,
@@ -10,8 +10,8 @@ module.exports = function (sequelize, DataTypes) {
     }
   });
 
-  //belongsTo means this is the child of the parent 
-  Collection.associate = function (models) {
+  //belongsTo means this is the child of the parent
+  Collection.associate = function(models) {
     Collection.belongsTo(models.User, { foreignKey: "userId" });
     //this defines the patterns table as the child of the collections table
     Collection.hasMany(models.Pattern, {
