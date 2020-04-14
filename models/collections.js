@@ -1,10 +1,6 @@
 //Creates the table that stores user collections and the patterns therein ("child")
-module.exports = function(sequelize, DataTypes) {
+module.exports = function (sequelize, DataTypes) {
   var Collection = sequelize.define("Collection", {
-    username: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
     nameOfCollection: {
       type: DataTypes.STRING,
       allowNull: false
@@ -15,24 +11,17 @@ module.exports = function(sequelize, DataTypes) {
     }
   });
 
-//belongsTo means this is the child of the parent 
-  Collection.associate = function(models) {
-    Collection.belongsTo(models.User, {
-      foreignKey: {
-//won't allow you to create an entry in the collections without also having a user id value "prevents orphaning a row"
-        allowNull: false
-      },
-      onDelete: "cascade"
-    });
-//this defines the patterns table as the child of the collections table
+  //belongsTo means this is the child of the parent 
+  Collection.associate = function (models) {
+    Collection.belongsTo(models.User, { foreignKey: "userId" });
+    //this defines the patterns table as the child of the collections table
     Collection.hasMany(models.Pattern, {
-//if you delete a User this will delete the collections with the user
+      //if you delete a User this will delete the collections with the user
       onDelete: "cascade"
     });
   };
   return Collection;
 };
-
 
 //On the click of the create a new collection button, zach will do an ajax call to post the information (including the name of the collection), which will create a route (write the logic to respond to this call in the apiRoutes.js) within the route do a collection.create to create a new collections record. Will need to know the User ID and the name of the collection that you're trying to create (fetch from the input form that the user creates) tell zach that you need an input form in handlebars
 

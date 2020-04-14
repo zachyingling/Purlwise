@@ -1,6 +1,4 @@
-INSERT INTO cats (name) VALUES ('Meeses');
-INSERT INTO cats (name) VALUES ('Bobbi');
-INSERT INTO cats (name, sleepy) VALUES ('Sylvester', true);
-INSERT INTO cats (name, sleepy) VALUES ('Marilyn Manson', true);
-INSERT INTO cats (name, sleepy) VALUES ('Joe Biden', true);
-INSERT INTO cats (name) VALUES ('Owens');
+USE project2_db; 
+
+INSERT INTO Collections (nameOfCollection, patternId, UserId, createdAt, updatedAt) VALUES ('Spring Sweaters', 1, 1, curdate(), curdate());
+INSERT INTO Patterns (patternName, patternUrl, collectionId, createdAt, updatedAt) VALUES ("April Crochet", "www.ravelry.com", 1, curdate(), curdate());
