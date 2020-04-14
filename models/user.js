@@ -5,7 +5,8 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING
     },
     uid: {
-      type: DataTypes.STRING
+      type: DataTypes.STRING,
+      primaryKey: true
     },
     profilePicUrl: {
       type: DataTypes.STRING,

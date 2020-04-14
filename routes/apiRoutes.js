@@ -31,33 +31,23 @@ module.exports = function (app) {
       });
   });
 
-  //Get all users
-  app.get("/api/user", function (req, res) {
-    db.User.findAll({}).then(function (dbUser) {
-      res.json(dbUser);
+  //Save username and password
+  app.post("/api/")
+  //Save a pattern
+  app.post("/api/patterns", function (req, res) {
+    var patternId = req.query.patternId;
+    var patternUrl = req.query.patternUrl;
+    var patternName = req.query.patternName;
+    db.Pattern.create({
+      patternUrl: patternUrl,
+      patternName: patternName,
+      patternId: patternId
+    }).then(function (results) {
+      res.json(results);
     });
   });
-  //Get all collections
-  app.get("/api/collection", function (req, res) {
-    db.Collection.findAll({}).then(function (dbCollection) {
-      res.json(dbCollection);
-    });
-  });
-
-  //Get all patterns
-  app.get("/api/pattern", function (req, res) {
-    db.Pattern.findAll({}).then(function (dbPattern) {
-      res.json(dbPattern);
-    });
-  });
-  //Create a new user
-  app.post("/api/user", function (req, res) {
-    db.User.create(req.body).then(function (dbUser) {
-      res.json(dbUser);
-    });
-  });
-
-  //THIS WAS THE NEWEST CHANGES, WHAT DO I NEED TO KEEP????
+  
+//Nathan's routes do not delete
   app.all("/auth/github", function (req, res, next) {
     res.header("Access-Control-Allow-Origin", "https://github.com");
     res.header("Access-Control-Allow-Headers", "X-Requested-With");

@@ -2,15 +2,17 @@
 
 module.exports = function (sequelize, DataTypes) {
   var Pattern = sequelize.define("Pattern", {
+    patternId: {
+      type: DataTypes.INTEGER,
+      primaryKey: true
+    },
     //must fetch from the API
     patternName: {
-      type: DataTypes.STRING,
-      allowNull: false
+      type: DataTypes.STRING
     },
     //must fetch from the API
     patternUrl: {
-      type: DataTypes.STRING,
-      allowNull: false
+      type: DataTypes.STRING
     }
   });
 

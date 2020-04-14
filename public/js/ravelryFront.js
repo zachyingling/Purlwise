@@ -1,4 +1,32 @@
 $(document).ready(() => {
+
+  $(".save-btn").on("click", function() {
+    var patternId = $(this).attr
+    ("data-id");
+    var idValue = $(this).attr("id");
+var numberValue = idValue.substring(11);
+var nameValue = $("#patternName" + numberValue).text();
+var urlValue = $("#patternLink" + numberValue).attr("href");
+    $.ajax({
+      url: "/api/patterns",
+      method: "POST",
+      async: true,
+      data: {
+        id: patternId,
+        name: nameValue,
+        url: urlValue
+      },
+      dataType: "json",
+      error: function(jqXHR, textStatus, errorThrown) {
+        console.log("jqXHR: " + jqXHR);
+        console.log("Text status: " + textStatus);
+        console.log("error: " + errorThrown);
+      }
+    }).then(function(data){
+      console.log(data);
+    });
+  });
+
   $("#generatePatterns").on("click", function() {
     if ($("#patternsContainer").hasClass("d-block")) {
       $("#patternsContainer")

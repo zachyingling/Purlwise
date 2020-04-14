@@ -6,8 +6,7 @@ module.exports = function (sequelize, DataTypes) {
       allowNull: false
     },
     patternId: {
-      type: DataTypes.INTEGER,
-      allowNull: false
+      type: DataTypes.INTEGER
     }
   });
 
