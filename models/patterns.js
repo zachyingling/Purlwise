@@ -3,8 +3,7 @@
 module.exports = function(sequelize, DataTypes) {
   var Pattern = sequelize.define("Pattern", {
     patternId: {
-      type: DataTypes.INTEGER,
-      primaryKey: true
+      type: DataTypes.INTEGER
     },
     //must fetch from the API
     patternName: {
@@ -12,19 +11,14 @@ module.exports = function(sequelize, DataTypes) {
     },
     //must fetch from the API
     patternUrl: {
-      type: DataTypes.STRING
+      type: DataTypes.STRING,
+      isUrl: true
     }
   });
 
-  //belongsTo means this is the child of the parent (collection)
+  //hasMany refers to the one or many children this table (model) can have
   Pattern.associate = function(models) {
-    Pattern.belongsTo(models.Collection, {
-      onDelete: "cascade",
-      foreignKey: {
-        //won't allow you to create an entry in the collections without also having a user id value "prevents orphaning a row"
-        allowNull: false
-      }
-    });
+    Pattern.belongsTo(models.User);
   };
   return Pattern;
 };

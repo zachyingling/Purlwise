@@ -2,6 +2,7 @@
 var passport = require("passport"),
   GitHubStrategy = require("passport-github2").Strategy;
 var db = require("../../models");
+var uid = "";
 
 passport.serializeUser(function(user, done) {
   done(null, user.id);
@@ -39,6 +40,7 @@ passport.use(
         defaults: { uid: profile.id, profilePicUrl: gitProPic }
       })
         .then(([user, created]) => {
+          uid = user.uid;
           // console.log(user.get({
           //   plain: true
           // }))
@@ -52,4 +54,7 @@ passport.use(
   )
 );
 
-module.exports = passport;
+module.exports = {
+  passport: passport,
+  uid: uid
+};
