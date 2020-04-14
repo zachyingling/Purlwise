@@ -3,6 +3,7 @@ $(document).ready(() => {
     var patternId = $(this).attr("data-id");
     var idValue = $(this).attr("id");
     var numberValue = idValue.substring(11);
+    console.log(numberValue);
     var nameValue = $("#patternName" + numberValue).text();
     var urlValue = $("#patternLink" + numberValue).attr("href");
     $.ajax({
