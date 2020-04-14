@@ -1,15 +1,14 @@
-module.exports = function (app) {
-
+module.exports = function(app) {
   // Load index page
-  app.get("/", function (req, res) {
+  app.get("/", function(req, res) {
     res.render("index");
   });
 
-  app.get("/generate", function (req, res) {
+  app.get("/generate", function(req, res) {
     res.render("generate");
   });
 
-  app.get("/profile", function (req, res) {
+  app.get("/profile", function(req, res) {
     res.render("profile");
   });
   // Load index page (NATHAN'S CODE BEGINS HERE)
@@ -52,7 +51,7 @@ module.exports = function (app) {
   });
 
   // Render 404 page for any unmatched routes
-  app.get("*", function (req, res) {
+  app.get("*", function(req, res) {
     res.render("404");
   });
 

@@ -21,7 +21,7 @@ module.exports = function(sequelize, DataTypes) {
 
   //hasMany refers to the one or many children this table (model) can have
   User.associate = function(models) {
-    User.hasOne(models.Collection, { foreignKey: "userId" })
+    User.hasOne(models.Collection, { foreignKey: "userId" });
     // User.hasMany(models.Pattern, {
     //   //if you delete a User this will delete the collections with the user
     //   // onDelete: "cascade"
