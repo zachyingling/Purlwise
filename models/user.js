@@ -1,31 +1,26 @@
 module.exports = function(sequelize, DataTypes) {
   var User = sequelize.define("User", {
-    // fetch from passport
-    username: {
-      type: DataTypes.STRING
-    },
     uid: {
-      type: DataTypes.STRING,
+      type: DataTypes.INTEGER,
       primaryKey: true
     },
-    profilePicUrl: {
-      type: DataTypes.STRING,
-      isUrl: true
+    //fetch from passport
+    username: {
+      type: DataTypes.STRING
     },
     //fetch from passport
     password: {
       type: DataTypes.STRING,
       defaultValue: "password"
+    },
+    profilePicUrl: {
+      type: DataTypes.STRING,
+      isUrl: true
     }
   });
-
-  //hasMany refers to the one or many children this table (model) can have
+  //hasOne refers to the one or many children this table (model) can have
   User.associate = function(models) {
-    User.hasOne(models.Collection, { foreignKey: "userId" });
-    // User.hasMany(models.Pattern, {
-    //   //if you delete a User this will delete the collections with the user
-    //   // onDelete: "cascade"
-    // });
+    User.hasOne(models.Pattern);
   };
   return User;
 };

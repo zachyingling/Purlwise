@@ -31,17 +31,22 @@ module.exports = function(app) {
       });
   });
 
-  // //Save username and password
-  // app.post("/api/");
+  //Save user login
   //Save a pattern
   app.post("/api/patterns", function(req, res) {
-    var patternId = req.query.patternId;
-    var patternUrl = req.query.patternUrl;
-    var patternName = req.query.patternName;
+    var patternId = req.body.id;
+    var patternName = req.body.name;
+    var patternUrl = req.body.url;
+    var UserUid = req.user.dataValues.uid;
+
+    // var UserId = req.user.dataValues.UserId
+    console.log(patternId, patternUrl, patternName);
+    console.log(req.user.dataValues.uid);
     db.Pattern.create({
-      patternUrl: patternUrl,
+      patternId: patternId,
       patternName: patternName,
-      patternId: patternId
+      patternUrl: patternUrl,
+      UserUid: UserUid
     }).then(function(results) {
       res.json(results);
     });
@@ -60,12 +65,14 @@ module.exports = function(app) {
 
   app.get(
     "/auth/github",
-    passport.authenticate("github", { scope: ["read:user", "user:email"] })
+    passport.passport.authenticate("github", {
+      scope: ["read:user", "user:email"]
+    })
   );
 
   app.get(
     "/auth/github/callback",
-    passport.authenticate("github", {
+    passport.passport.authenticate("github", {
       failureRedirect: "/login"
     }),
     function(req, res) {

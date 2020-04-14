@@ -16,8 +16,8 @@ var bodyParser = require("body-parser");
 app.use(express.static("public"));
 app.use(session({ secret: "cats", resave: true, saveUninitialized: true }));
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(passport.initialize());
-app.use(passport.session());
+app.use(passport.passport.initialize());
+app.use(passport.passport.session());
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -36,7 +36,7 @@ app.set("view engine", "handlebars");
 require("./routes/apiRoutes")(app);
 require("./routes/htmlRoutes")(app);
 
-var syncOptions = { force: false };
+var syncOptions = { force: true };
 
 // If running a test, set syncOptions.force to true
 // clearing the `testdb`
