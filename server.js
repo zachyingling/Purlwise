@@ -19,7 +19,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static(path.join(__dirname + "/public")));
 
@@ -43,16 +43,16 @@ var syncOptions = { force: false };
 if (process.env.NODE_ENV === "test") {
   syncOptions.force = true;
 }
-
+const db = require("./models");
 // Starting the server, syncing our models ------------------------------------/
-//db.sequelize.sync(syncOptions).then(function() {
-app.listen(PORT, function() {
-  console.log(
-    "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
-    PORT,
-    PORT
-  );
+db.sequelize.sync(syncOptions).then(function() {
+  app.listen(PORT, function() {
+    console.log(
+      "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
+      PORT,
+      PORT
+    );
+  });
 });
-//});
 
 module.exports = app;

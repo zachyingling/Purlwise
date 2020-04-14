@@ -1,6 +1,18 @@
 module.exports = function(app) {
   // Load index page
   app.get("/", function(req, res) {
+    res.render("index");
+  });
+
+  app.get("/generate", function(req, res) {
+    res.render("generate");
+  });
+
+  app.get("/profile", function(req, res) {
+    res.render("profile");
+  });
+  // Load index page (NATHAN'S CODE BEGINS HERE)
+  app.get("/", function(req, res) {
     res.render("index", {
       msg: "Welcome!"
     });
