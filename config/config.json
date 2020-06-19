@@ -1,8 +1,8 @@
 {
   "development": {
     "username": "root",
-    "password": "p@$$w0rd",
-    "database": "project2_db",
+    "password": "password",
+    "database": "testdb",
     "host": "localhost",
     "port": 3306,
     "dialect": "mysql"
