@@ -14,4 +14,4 @@ This application will be able to generate random, free patterns that you can use
 * Travis CI
 
 ### Link
-https://project-2-znnm.herokuapp.com
+https://purlwise-zpy.herokuapp.com/
