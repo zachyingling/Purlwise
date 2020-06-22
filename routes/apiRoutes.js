@@ -47,9 +47,13 @@ module.exports = function(app) {
       patternName: patternName,
       patternUrl: patternUrl,
       UserUid: UserUid
-    }).then(function(results) {
-      res.json(results);
-    });
+    })
+      .then(function() {
+        res.send({ saved: "done" });
+      })
+      .catch(() => {
+        res.send({ saved: "error" });
+      });
   });
   //Nathan's routes do not delete
   app.all("/auth/github", function(req, res, next) {
