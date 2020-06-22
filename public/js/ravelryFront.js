@@ -3,7 +3,6 @@ $(document).ready(() => {
     var patternId = $(this).attr("data-id");
     var idValue = $(this).attr("id");
     var numberValue = idValue.substring(11);
-    console.log(numberValue);
     var nameValue = $("#patternName" + numberValue).text();
     var urlValue = $("#patternLink" + numberValue).attr("href");
     $.ajax({
@@ -22,7 +21,11 @@ $(document).ready(() => {
         console.log("error: " + errorThrown);
       }
     }).then(function(data) {
-      console.log(data);
+      if (data.saved === "done") {
+        alert("Saved pattern");
+      } else {
+        alert("Error saving the pattern to your profile");
+      }
     });
   });
 
