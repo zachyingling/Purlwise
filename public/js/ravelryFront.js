@@ -23,6 +23,8 @@ $(document).ready(() => {
     }).then(function(data) {
       if (data.saved === "done") {
         alert("Saved pattern");
+      } else if (data.saved === "already") {
+        alert("You have already saved this pattern");
       } else {
         alert("Error saving the pattern to your profile");
       }
@@ -57,9 +59,9 @@ $(document).ready(() => {
       },
       dataType: "json",
       error: function(jqXHR, textStatus, errorThrown) {
-        console.log("jqXHR: " + jqXHR);
-        console.log("Text status: " + textStatus);
-        console.log("error: " + errorThrown);
+        alert(
+          "Error code: " + errorThrown + "\n Please refresh and try again."
+        );
       }
     }).then(data => {
       for (let i = 0; i < data.length; i++) {
