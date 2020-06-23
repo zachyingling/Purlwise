@@ -21,11 +21,12 @@ $(document).ready(() => {
         console.log("error: " + errorThrown);
       }
     }).then(function(data) {
+      console.log(data);
       if (data.saved === "done") {
         alert("Saved pattern");
       } else if (data.saved === "already") {
         alert("You have already saved this pattern");
-      } else {
+      } else if (data.saved === "error") {
         alert("Error saving the pattern to your profile");
       }
     });

@@ -39,17 +39,24 @@ module.exports = function(app) {
     var patternUrl = req.body.url;
     var UserUid = req.user.dataValues.uid;
 
-    // var UserId = req.user.dataValues.UserId
-    console.log(patternId, patternUrl, patternName);
-    console.log(req.user.dataValues.uid);
-    db.Pattern.create({
-      patternId: patternId,
-      patternName: patternName,
-      patternUrl: patternUrl,
-      UserUid: UserUid
-    })
-      .then(function() {
-        res.send({ saved: "done" });
+    db.Pattern.findOne({ where: { patternId: patternId, UserUid: UserUid } })
+      .then(response => {
+        if (!response) {
+          db.Pattern.create({
+            patternId: patternId,
+            patternName: patternName,
+            patternUrl: patternUrl,
+            UserUid: UserUid
+          })
+            .then(function() {
+              res.send({ saved: "done" });
+            })
+            .catch(() => {
+              res.send({ saved: "error" });
+            });
+        } else {
+          res.send({ saved: "already" });
+        }
       })
       .catch(() => {
         res.send({ saved: "error" });
