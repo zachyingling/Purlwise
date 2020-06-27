@@ -1,3 +1,5 @@
+const db = require("../models");
+
 module.exports = function(app) {
   // Load index page (NATHAN'S CODE BEGINS HERE)
   app.get("/", function(req, res) {
@@ -32,10 +34,23 @@ module.exports = function(app) {
   });
 
   app.get("/profile", function(req, res) {
-    var userInfo = req.user.dataValues;
-    res.render("profile", {
-      user: userInfo
-    });
+    let userInfo = req.user.dataValues;
+    let userID = userInfo.uid;
+
+    db.Pattern.findAll({ where: { UserUid: userID } })
+      .then(response => {
+        console.log(response[0]);
+        res.render("profile", {
+          user: userInfo,
+          patterns: response
+        });
+      })
+      .catch(err => {
+        console.log(err);
+        res.render("profile", {
+          user: userInfo
+        });
+      });
   });
 
   // Render 404 page for any unmatched routes

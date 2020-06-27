@@ -24,5 +24,14 @@
                 <a class="dropdown-item" href="/logout">Logout</a>
             </div>
         </div>
+        <div class="container">
+            {{#if patterns}}
+                {{#each patterns}}
+
+                {{/each}}
+            {{else}}
+            <h1>No Saved Patterns</h1>
+            {{/if}}
+        </div>
     </div>
 </nav>
