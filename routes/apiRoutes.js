@@ -34,6 +34,7 @@ module.exports = function(app) {
   //Save user login
   //Save a pattern
   app.post("/api/patterns", function(req, res) {
+    console.log(req.body);
     var patternId = req.body.id;
     var patternName = req.body.name;
     var patternUrl = req.body.url;

@@ -5,6 +5,8 @@ $(document).ready(() => {
     var numberValue = idValue.substring(11);
     var nameValue = $("#patternName" + numberValue).text();
     var urlValue = $("#patternLink" + numberValue).attr("href");
+    var imageLink = $("#patternImage" + numberValue).attr("src");
+    var authorName = $("#patternAuthor" + numberValue).text();
     $.ajax({
       url: "/api/patterns",
       method: "POST",
@@ -12,13 +14,13 @@ $(document).ready(() => {
       data: {
         id: patternId,
         name: nameValue,
-        url: urlValue
+        url: urlValue,
+        image: imageLink,
+        author: authorName
       },
       dataType: "json",
       error: function(jqXHR, textStatus, errorThrown) {
-        console.log("jqXHR: " + jqXHR);
-        console.log("Text status: " + textStatus);
-        console.log("error: " + errorThrown);
+        alert("Error saving. Error code: " + errorThrown);
       }
     }).then(function(data) {
       console.log(data);
