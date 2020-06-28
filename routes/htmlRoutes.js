@@ -39,7 +39,6 @@ module.exports = function(app) {
 
     db.Pattern.findAll({ where: { UserUid: userID } })
       .then(response => {
-        console.log(response[0]);
         res.render("profile", {
           user: userInfo,
           patterns: response

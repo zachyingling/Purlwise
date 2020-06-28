@@ -24,14 +24,24 @@
                 <a class="dropdown-item" href="/logout">Logout</a>
             </div>
         </div>
-        <div class="container">
-            {{#if patterns}}
-                {{#each patterns}}
-
-                {{/each}}
-            {{else}}
-            <h1>No Saved Patterns</h1>
-            {{/if}}
-        </div>
     </div>
 </nav>
+<main style="background-color: #f1c344;">
+    <div class="container" style="background-color: #d9ac32;">
+        {{#if patterns}}
+            {{#each patterns}}
+                <div class="card" style="width: 18rem;">
+                <img class="card-img-top imgForCard" id="patternImage3" src={{this.dataValues.patternImage}} alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title" id="patternName3">{{this.dataValues.patternName}}</h5>
+                        <p class="card-text" id="patternAuthor3">{{this.dataValues.patternAuthor}}</p>
+                        <a href={{this.dataValues.patternUrl}} id="patternLink3" class="btn btn-primary" target="_blank">Link</a>
+                        <a data-id={{this.dataValues.patternId}} id="patternSave3" class="btn btn-primary unsave-btn">Unsave</a>
+                    </div>
+                </div>
+            {{/each}}
+        {{else}}
+        <h1>No Saved Patterns</h1>
+        {{/if}}
+    </div>
+</main>
