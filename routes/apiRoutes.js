@@ -47,6 +47,8 @@ module.exports = function(app) {
             patternId: patternId,
             patternName: patternName,
             patternUrl: patternUrl,
+            patternAuthor: req.body.author,
+            patternImage: req.body.image,
             UserUid: UserUid
           })
             .then(function() {
