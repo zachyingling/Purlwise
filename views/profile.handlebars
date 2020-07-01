@@ -26,17 +26,18 @@
         </div>
     </div>
 </nav>
-<main style="background-color: #f1c344;">
-    <div class="container" style="background-color: #d9ac32;">
+<main style="background-color: #ab5076;">
+    <h1 class="text-center" style="color: white;">Saved Patterns</h1>
+    <div class="d-flex flex-column p-2" style="background-color: #d9ac32;">
         {{#if patterns}}
             {{#each patterns}}
-                <div class="card" style="width: 18rem;">
+                <div class="card" style="width: 18rem; margin: 40px">
                 <img class="card-img-top imgForCard" id="patternImage3" src={{this.dataValues.patternImage}} alt="Card image cap">
                     <div class="card-body">
                         <h5 class="card-title" id="patternName3">{{this.dataValues.patternName}}</h5>
                         <p class="card-text" id="patternAuthor3">{{this.dataValues.patternAuthor}}</p>
-                        <a href={{this.dataValues.patternUrl}} id="patternLink3" class="btn btn-primary" target="_blank">Link</a>
-                        <a data-id={{this.dataValues.patternId}} id="patternSave3" class="btn btn-primary unsave-btn">Unsave</a>
+                        <a href={{this.dataValues.patternUrl}} id="patternLink" class="btn btn-primary" target="_blank">Link</a>
+                        <a data-id={{this.dataValues.patternId}} id="patternUnsave" class="btn btn-primary unsave-btn">Unsave</a>
                     </div>
                 </div>
             {{/each}}
@@ -45,3 +46,4 @@
         {{/if}}
     </div>
 </main>
+<script type="text/javascript" src="/js/profileFront.js"></script>
