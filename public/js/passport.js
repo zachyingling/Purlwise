@@ -31,7 +31,7 @@ passport.use(
     {
       clientID: keys.clientID,
       clientSecret: keys.clientSecret,
-      callbackURL: "https://purlwise-zpy.herokuapp.com/auth/github/callback"
+      callbackURL: "http://127.0.0.1:3000/auth/github/callback"
     },
     function(accessToken, refreshToken, profile, done) {
       var gitUserName = profile.username;
