@@ -1,5 +1,5 @@
 $(document).ready(() => {
-  $(".unsave-btn").on("click", function() {
+  $("#patternUnsave").on("click", function() {
     let patternID = $(this).attr("data-id");
     $.ajax({
       url: "/api/patterns",

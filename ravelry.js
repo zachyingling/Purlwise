@@ -33,10 +33,8 @@ module.exports = (knitOrCrochet, yarnWeight, articleOfClothing, cb) => {
 
         for (let i = 0; i < randomNums.length; i++) {
           outputFunction(allPatternIDs[randomNums[i]], function(data) {
-            console.log(allPatterns.length);
             allPatterns.push(data);
             if (allPatterns.length === 6) {
-              console.log("returned all patterns");
               return cb(allPatterns);
             }
           });

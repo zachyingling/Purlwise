@@ -65,6 +65,20 @@ $(document).ready(() => {
         alert(
           "Error code: " + errorThrown + "\n Please refresh and try again."
         );
+        
+        //Remove spinner if error occurs
+        if (
+          $("#patternsContainer").hasClass("d-none") &&
+          $("#spinnerDiv").hasClass("d-block")
+        ) {
+          $("#spinnerDiv")
+            .removeClass("d-block")
+            .addClass("d-none");
+          $("#patternsContainer")
+            .removeClass("d-none")
+            .addClass("d-block");
+        };
+  
       }
     }).then(data => {
       for (let i = 0; i < data.length; i++) {
