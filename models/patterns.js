@@ -9,8 +9,15 @@ module.exports = function(sequelize, DataTypes) {
     patternName: {
       type: DataTypes.STRING
     },
+    patternAuthor: {
+      type: DataTypes.STRING
+    },
     //must fetch from the API
     patternUrl: {
+      type: DataTypes.STRING,
+      isUrl: true
+    },
+    patternImage: {
       type: DataTypes.STRING,
       isUrl: true
     }

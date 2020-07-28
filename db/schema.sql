@@ -1,8 +1,8 @@
-DROP DATABASE IF EXISTS project2_db;
+DROP DATABASE IF EXISTS testdb;
 
-CREATE DATABASE project2_db;
+CREATE DATABASE testdb;
 
-use project2_db;
+use testdb;
 
 -- CREATE TABLE users(
 -- 	id INT AUTO_INCREMENT NOT NULL,

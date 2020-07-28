@@ -39,18 +39,44 @@ module.exports = function(app) {
     var patternUrl = req.body.url;
     var UserUid = req.user.dataValues.uid;
 
-    // var UserId = req.user.dataValues.UserId
-    console.log(patternId, patternUrl, patternName);
-    console.log(req.user.dataValues.uid);
-    db.Pattern.create({
-      patternId: patternId,
-      patternName: patternName,
-      patternUrl: patternUrl,
-      UserUid: UserUid
-    }).then(function(results) {
-      res.json(results);
-    });
+    db.Pattern.findOne({ where: { patternId: patternId, UserUid: UserUid } })
+      .then(response => {
+        if (!response) {
+          db.Pattern.create({
+            patternId: patternId,
+            patternName: patternName,
+            patternUrl: patternUrl,
+            patternAuthor: req.body.author,
+            patternImage: req.body.image,
+            UserUid: UserUid
+          })
+            .then(function() {
+              res.send({ saved: "done" });
+            })
+            .catch(() => {
+              res.send({ saved: "error" });
+            });
+        } else {
+          res.send({ saved: "already" });
+        }
+      })
+      .catch(() => {
+        res.send({ saved: "error" });
+      });
   });
+
+  app.put("/api/patterns", function(req, res) {
+    console.log(req.body.id);
+    let patternId = req.body.id;
+    let UserUid = req.user.dataValues.uid;
+
+    db.Pattern.destroy({ where: { patternId: patternId, UserUid: UserUid } })
+      .then(() => {
+        res.send("destroyed");
+      })
+      .catch(err => res.send("Error: " + err));
+  });
+
   //Nathan's routes do not delete
   app.all("/auth/github", function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "https://github.com");

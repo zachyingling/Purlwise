@@ -3,9 +3,10 @@ $(document).ready(() => {
     var patternId = $(this).attr("data-id");
     var idValue = $(this).attr("id");
     var numberValue = idValue.substring(11);
-    console.log(numberValue);
     var nameValue = $("#patternName" + numberValue).text();
     var urlValue = $("#patternLink" + numberValue).attr("href");
+    var imageLink = $("#patternImage" + numberValue).attr("src");
+    var authorName = $("#patternAuthor" + numberValue).text();
     $.ajax({
       url: "/api/patterns",
       method: "POST",
@@ -13,16 +14,23 @@ $(document).ready(() => {
       data: {
         id: patternId,
         name: nameValue,
-        url: urlValue
+        url: urlValue,
+        image: imageLink,
+        author: authorName
       },
       dataType: "json",
       error: function(jqXHR, textStatus, errorThrown) {
-        console.log("jqXHR: " + jqXHR);
-        console.log("Text status: " + textStatus);
-        console.log("error: " + errorThrown);
+        alert("Error saving. Error code: " + errorThrown);
       }
     }).then(function(data) {
       console.log(data);
+      if (data.saved === "done") {
+        alert("Saved pattern");
+      } else if (data.saved === "already") {
+        alert("You have already saved this pattern");
+      } else if (data.saved === "error") {
+        alert("Error saving the pattern to your profile");
+      }
     });
   });
 
@@ -54,9 +62,9 @@ $(document).ready(() => {
       },
       dataType: "json",
       error: function(jqXHR, textStatus, errorThrown) {
-        console.log("jqXHR: " + jqXHR);
-        console.log("Text status: " + textStatus);
-        console.log("error: " + errorThrown);
+        alert(
+          "Error code: " + errorThrown + "\n Please refresh and try again."
+        );
       }
     }).then(data => {
       for (let i = 0; i < data.length; i++) {

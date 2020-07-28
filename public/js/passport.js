@@ -2,6 +2,7 @@
 var passport = require("passport"),
   GitHubStrategy = require("passport-github2").Strategy;
 var db = require("../../models");
+let keys = require("../../keys");
 var uid = "";
 
 passport.serializeUser(function(user, done) {
@@ -28,11 +29,9 @@ passport.deserializeUser(async (id, done) => {
 passport.use(
   new GitHubStrategy(
     {
-      clientID: "1a0c9a6167a639262425",
-      clientSecret: "ceabf4a109a5e27f9327c78c04a74e515f443737",
-      callbackURL: "https://project-2-znnm.herokuapp.com/auth/github/callback"
-      // USE THIS \/ whenever you are debugging, but if committing to master make sure you commit this one ^
-      // callbackURL: "http://localhost:3000/auth/github/callback"
+      clientID: keys.clientID,
+      clientSecret: keys.clientSecret,
+      callbackURL: "https://purlwise-zpy.herokuapp.com/auth/github/callback"
     },
     function(accessToken, refreshToken, profile, done) {
       var gitUserName = profile.username;

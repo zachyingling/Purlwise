@@ -4,3 +4,4 @@ npm-debug.log
 config.js
 .env
 config.json
+package-lock.json

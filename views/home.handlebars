@@ -1,8 +1,21 @@
-<div id="topHeader" class="container">
-    <div class="row">
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #94c481;">
+    <div class="row" style="width: 100%">
         <div class="col">
+            <div class="collapse navbar-collapse" id="navbarNav" style="padding: 12px 0px">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/home" onclick="return false;">Home<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/generate">Generate</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/profile">Profile</a>
+                    </li>
+                </ul>
+            </div>
         </div>
-        <div class="col-4">
+        <div class="col-4" style="display: inherit;">
             <img class="profImg" src={{user.profilePicUrl}}>
             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 {{user.username}}
@@ -12,20 +25,21 @@
             </div>
         </div>
     </div>
-</div>
-
-<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
-    <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-            <li class="nav-item active">
-                <a class="nav-link" href="/home" onclick="return false;">Home<span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/generate">Generate</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/profile">Profile</a>
-            </li>
-        </ul>
-    </div>
 </nav>
+
+<div class="logo-image"></div>
+
+<main style="background-color: #f1c344;">
+    <div class="container pt-4 pb-4">
+        <div class="row">
+            <div class="col-6 mt-4 mb-4">
+                <h1>Description</h1>
+                <h3>This application will be able to generate random, free patterns that you can use for ideas for your own knitting.</h3>
+            </div>
+            <div class="col-6 mt-4 mb-4">
+                <h1>Instruction</h1>
+                <h3>Click "Generate" on the top left corner and select the article of clothing, yarn weight, and if you will be Knitting or Crochet. Then press submit to generate your patterns.</h3>
+            </div>
+        </div>
+    </div>
+</main>
