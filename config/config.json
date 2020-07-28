@@ -1,8 +1,8 @@
 {
   "development": {
-    "username": "root",
-    "password": "password",
-    "database": "testdb",
+    "username": "test",
+    "password": "",
+    "database": "purlwise",
     "host": "localhost",
     "port": 3306,
     "dialect": "mysql"

@@ -27,15 +27,18 @@
         </div>
     </div>
 </nav>
-{{!--  --}}
+
 <main style="background: #f1c344">
+<!-- Form -->
   <form class="form-inline p-4">
+  <div id="form">    
+    <label for="knit-or-crochet">Pattern Type:</label>
     <select name="knit-or-crochet" class="custom-select custom-select-lg mb-3" id="knit-or-crochet">
-      <option selected>Knitting or Crochet</option>
-      <option value="Knitting">Knitting</option>
+      <option value="Knitting" selected>Knit</option>
       <option value="Crochet">Crochet</option>
     </select>
 
+    <label for="yarnWeight">Yarn Weight:</label>
     <select name="yarnWeight" class="custom-select custom-select-sm mb-3" id="yarnWeight">
       <option selected>Select Yarn Weight</option>
       <option value="Aran">Aran</option>
@@ -52,6 +55,7 @@
       <option value="Any gauge">Any gauge</option>
     </select>
 
+    <label for="articleOfClothing">Clothing:</label>
     <select name="articleOfClothing" class="custom-select custom-select-sm mb-3" id="articleOfClothing">
       <option selected>Select Article of Clothing</option>
       <option value="Socks">Socks</option>
@@ -60,6 +64,7 @@
       <option value="Hats">Hats</option>
       <option value="Scarf">Scarf</option>
     </select>
+  </div>
 
     <input type="button" class="btn btn-secondary mb-2" id="generatePatterns" value="Submit" />
   </form>
