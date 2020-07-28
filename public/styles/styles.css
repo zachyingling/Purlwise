@@ -1,3 +1,15 @@
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+box-sizing: inherit;
+} 
+
+body {
+  margin: 0 auto;
+}
+
 .list-group-item {
   line-height: 2.5;
 }
@@ -38,9 +50,31 @@
   color: rgb(237, 237, 237);
 }
 
-.form {
-  display: flex;
+.yellow {
+  width: 100%;
+  background: #f1c344
 }
+
+/* Form */
+#form-container {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  text-align: left;
+}
+.form-option {
+  text-align: left;
+}
+
+.form-options {
+  width: 250px;
+  margin: 5px;
+}
+
+label {
+  text-align: left;
+}
+
 
 /* All spinner code copied from here https://stackoverflow.com/questions/6091253/overlay-with-spinner/20013732 */
 .spinner {
