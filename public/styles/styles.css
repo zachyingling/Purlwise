@@ -18,6 +18,13 @@ h1 {
   letter-spacing: -0.8px;
 }
 
+
+.nav-style{
+  color: white;
+  margin: 0 5px;
+  text-shadow: 0 0 8px rgba(7,7,7,0.9);
+}
+
 .list-group-item {
   line-height: 2.5;
 }
@@ -126,7 +133,7 @@ button:hover {
   box-shadow: 0 0 12px rgba(7,7,7,0.95);
 }
 
-a:link {
+a:link, a:focus, a:active, a:visited {
   color: white;
   text-decoration: none;
 }
