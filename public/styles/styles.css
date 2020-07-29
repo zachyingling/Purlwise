@@ -26,7 +26,12 @@ h1 {
 }
 
 .card-properties {
-  display: flex;
+  float: left;
+  margin: 0.5rem;
+  box-shadow: 0 0 20px rgba(7,7,7,0.95);
+} 
+.card-properties:hover {
+  box-shadow: 0 0 18px rgba(7,7,7,1);
 }
 
 .profImg {
@@ -46,8 +51,6 @@ h1 {
   height: 500px;
   margin: 0.5rem 1rem;
 }
-
-
 
 
 .logo-image {
