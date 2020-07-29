@@ -1,5 +1,47 @@
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+box-sizing: inherit;
+} 
+
+
+body {
+  margin: 0 auto;
+}
+
+h1 {
+  text-align: center;
+  color: white;
+  font-family: 'Lato', sans-serif;
+  letter-spacing: -0.8px;
+}
+
+
+.nav-style{
+  color: white;
+  margin: 0 5px;
+  text-shadow: 0 0 8px rgba(7,7,7,0.9);
+}
+
 .list-group-item {
   line-height: 2.5;
+}
+
+#patternsContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-properties {
+  float: left;
+  margin: 0.5rem;
+  box-shadow: 0 0 20px rgba(7,7,7,0.95);
+} 
+.card-properties:hover {
+  box-shadow: 0 0 18px rgba(7,7,7,1);
 }
 
 .profImg {
@@ -9,9 +51,17 @@
 }
 
 .imgForCard {
+  object-fit: cover;
   height: 300px;
-  width: 260px;
+  overflow: hidden;
 }
+
+.card-properties {
+  width: 400px;
+  height: 500px;
+  margin: 0.5rem 1rem;
+}
+
 
 .logo-image {
   background: url('../assets/purlwiseLogo.png');
@@ -20,12 +70,6 @@
   background-position: center;
   width: 100%;
   height: 375px;
-}
-
-#patternsContainer {
-  background-color: #d9ac32;
-  border-radius: 20px;
-  filter: drop-shadow(0px 5px 5px #00000040);
 }
 
 .btn-purl {
@@ -38,9 +82,70 @@
   color: rgb(237, 237, 237);
 }
 
-.form {
-  display: flex;
+.yellow {
+  width: 100%;
+  background: #f1c344
 }
+
+/* Form */
+#form-container {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  text-align: left;
+  margin: 0 10px;
+  padding: 10px; 
+}
+
+.form-option {
+  text-align: left;
+}
+
+.form-options {
+  width: 250px;
+  margin: 5px;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+label {
+  text-align: left;
+  margin-bottom: -5px;
+}
+
+#generatePatterns {
+  
+}
+
+/* Buttons */
+button {
+  background: rgba(166,77,121,1);
+  color: white;
+  border-radius: 5px;
+  width: 5rem;
+  padding: 5px;
+  box-shadow: 0 0 10px rgba(7,7,7,0.8);
+}
+
+button:hover {
+  cursor: pointer;
+  background: rgba(166,77,121,0.9);
+  box-shadow: 0 0 12px rgba(7,7,7,0.95);
+}
+
+a:link, a:focus, a:active, a:visited {
+  color: white;
+  text-decoration: none;
+}
+
+button:focus {
+  outline: none;
+}
+
+.link {
+  border-radius: 50%;
+}
+
 
 /* All spinner code copied from here https://stackoverflow.com/questions/6091253/overlay-with-spinner/20013732 */
 .spinner {
@@ -76,4 +181,13 @@
 @keyframes rotation {
   from {transform: rotate(0deg);}
   to {transform: rotate(359deg);}
+}
+
+/* Media Queries */
+/* Generate Form */
+@media screen and (max-width: 800px) {
+  #form-container {
+    display: inline-block;
+  }
+  
 }

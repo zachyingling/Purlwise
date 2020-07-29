@@ -27,7 +27,7 @@
     </div>
 </nav>
 <main style="background-color: #ab5076;">
-    <h1 class="text-center" style="color: white;">Saved Patterns</h1>
+    <h1>Saved Patterns</h1>
     <div class="d-flex flex-column p-2" style="background-color: #d9ac32; min-height: calc(100vh - 136px);">
         {{#if patterns}}
             {{#each patterns}}
@@ -36,8 +36,8 @@
                     <div class="card-body">
                         <h5 class="card-title" id="patternName3">{{this.dataValues.patternName}}</h5>
                         <p class="card-text" id="patternAuthor3">{{this.dataValues.patternAuthor}}</p>
-                        <a href={{this.dataValues.patternUrl}} id="patternLink" class="btn btn-primary" target="_blank">Link</a>
-                        <a data-id={{this.dataValues.patternId}} id="patternUnsave" class="btn btn-primary unsave-btn">Unsave</a>
+                        <button id="patternLink" class="linkBtn" target="_blank"><a href={{this.dataValues.patternUrl}} target="_blank"><i class="fas fa-link"></i>Link</a></button>
+                        <button data-id={{this.dataValues.patternId}} id="patternUnsave" class="deleteBtn"><i class="fas fa-trash"></i>Delete</button>
                     </div>
                 </div>
             {{/each}}
