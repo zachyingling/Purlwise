@@ -13,12 +13,13 @@ module.exports = (knitOrCrochet, yarnWeight, articleOfClothing, cb) => {
         craft: knitOrCrochet,
         weight: yarnWeight,
         // eslint-disable-next-line camelcase
-        page_size: 500
+        page_size: 200
       })
       .then(results => {
         var allPatternIDs = [];
         var randomNums = [];
         var allPatterns = [];
+        console.log(results);
 
         for (let i = 0; i < results.patterns.length; i++) {
           if (results.patterns[i].free === true) {

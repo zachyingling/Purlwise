@@ -6,6 +6,7 @@ html {
 box-sizing: inherit;
 } 
 
+
 body {
   margin: 0 auto;
 }
@@ -13,6 +14,8 @@ body {
 h1 {
   text-align: center;
   color: white;
+  font-family: 'Lato', sans-serif;
+  letter-spacing: -0.8px;
 }
 
 .list-group-item {
@@ -132,10 +135,9 @@ button:focus {
   outline: none;
 }
 
-/* .deleteBtn, .linkBtn, .saveBtn {
-  color: white;
+.link {
+  border-radius: 50%;
 }
-*/
 
 
 /* All spinner code copied from here https://stackoverflow.com/questions/6091253/overlay-with-spinner/20013732 */
@@ -176,3 +178,9 @@ button:focus {
 
 /* Media Queries */
 /* Generate Form */
+@media screen and (max-width: 800px) {
+  #form-container {
+    display: inline-block;
+  }
+  
+}
