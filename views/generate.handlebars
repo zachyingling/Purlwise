@@ -1,4 +1,4 @@
-{{!-- Nav Stuff --}}
+<!-- Nav Bar -->
 <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #94c481;">
     <div class="row" style="width: 100%">
         <div class="col">
@@ -7,7 +7,7 @@
                     <li class="nav-style">
                         <a href="/home">Home</a>
                     </li>
-                    <li class="nav-style">
+                    <li class="nav-style active">
                         <a href="/generate" onclick="return false;">Generate<span class="sr-only">(current)</a>
                     </li>
                     <li class="nav-style">
@@ -16,12 +16,6 @@
                 </ul>
             </div>
         </div>
-        <h1>Purlwise</h1><br>
-
-        <p style="font-family: 'Poppins', sans-serif;">Prow scuttle parrel provost Sail ho shrouds spirits boom mizzenmast yardarm. Pinnace holystone mizzenmast quarter crow's nest nipperkin grog yardarm hempen halter furl. Swab barque interloper chantey doubloon starboard grog black jack gangway rutters.</p>
-        <p style="font-family: 'Raleway', sans-serif;">Prow scuttle parrel provost Sail ho shrouds spirits boom mizzenmast yardarm. Pinnace holystone mizzenmast quarter crow's nest nipperkin grog yardarm hempen halter furl. Swab barque interloper chantey doubloon starboard grog black jack gangway rutters.</p>
-
-
         
         <div class="col-4" style="display: inherit;">
             <img class="profImg" src={{user.profilePicUrl}}>
@@ -32,11 +26,12 @@
                 <a class="dropdown-item" href="/logout">Logout</a>
             </div>
         </div>
+        <h1>Purlwise</h1>
     </div>
 </nav>
 
 <!-- Form -->
-<div class="yellow">
+<div class="yellowBack">
   <form>
   <div id="form-container">  
     <div class="form-option">
@@ -84,6 +79,10 @@
 
   </form>
 </div>
+        <p style="font-family: 'Poppins', sans-serif;">Prow scuttle parrel provost Sail ho shrouds spirits boom mizzenmast yardarm. Pinnace holystone mizzenmast quarter crow's nest nipperkin grog yardarm hempen halter furl. Swab barque interloper chantey doubloon starboard grog black jack gangway rutters.</p>
+        <p style="font-family: 'Raleway', sans-serif;">Prow scuttle parrel provost Sail ho shrouds spirits boom mizzenmast yardarm. Pinnace holystone mizzenmast quarter crow's nest nipperkin grog yardarm hempen halter furl. Swab barque interloper chantey doubloon starboard grog black jack gangway rutters.</p>
+
+
 
   <div class="spinner d-none" id="spinnerDiv"></div>
 

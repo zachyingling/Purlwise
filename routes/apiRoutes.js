@@ -77,7 +77,7 @@ module.exports = function(app) {
       .catch(err => res.send("Error: " + err));
   });
 
-  //Nathan's routes do not delete
+  //User login for github
   app.all("/auth/github", function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "https://github.com");
     res.header("Access-Control-Allow-Headers", "X-Requested-With");

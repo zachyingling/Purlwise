@@ -6,6 +6,50 @@ html {
 box-sizing: inherit;
 } 
 
+/* COLORS
+green: #94c481
+purple: rgba(166,77,121,1)
+yellow: #f1c344
+*/
+
+
+.middleLogo {
+  width: 80%;
+  margin: 10vh auto;
+}
+
+.logo span {
+  font-size: 170px;
+  margin-left: -0.8rem;
+  font-weight: 900;
+  font-family: 'Lato', sans-serif;
+  line-height: 150px;
+}
+
+.logo-right {
+  font-size: 50px;
+  text-align: right;
+  font-family: 'Lato', sans-serif;
+}
+
+.logo-left {
+  font-size: 50px;
+  text-align: left;
+  font-family: 'Lato', sans-serif;
+}
+
+.green {
+  color: #94c481;
+}
+
+.yellow {
+  color: #f1c344;
+}
+
+.purple {
+  color: #A64D79;
+}
+
 
 body {
   margin: 0 auto;
@@ -23,6 +67,10 @@ h1 {
   color: white;
   margin: 0 5px;
   text-shadow: 0 0 8px rgba(7,7,7,0.9);
+}
+
+.active {
+  font-weight: 900;
 }
 
 .list-group-item {
@@ -82,9 +130,9 @@ h1 {
   color: rgb(237, 237, 237);
 }
 
-.yellow {
+.yellowBack {
   width: 100%;
-  background: #f1c344
+  background: #f1c344;
 }
 
 /* Form */
