@@ -6,11 +6,16 @@ html {
 box-sizing: inherit;
 } 
 
-/* COLORS
-green: #94c481
-purple: rgba(166,77,121,1)
-yellow: #f1c344
-*/
+body {
+  margin: 0 auto;
+  font-family: 'Poppins', sans-serif;
+}
+
+:root {
+  --yellow: #f1c344;
+  --purp: #A64D79;
+  --green: #94c481;
+}
 
 
 .middleLogo {
@@ -51,20 +56,16 @@ yellow: #f1c344
 }
 
 
-body {
-  margin: 0 auto;
-}
-
 h1 {
   text-align: center;
-  color: white;
+  color: whitesmoke;
   font-family: 'Lato', sans-serif;
   letter-spacing: -0.8px;
 }
 
-
+/* Nav Bar */
 .nav-style{
-  color: white;
+  color: whitesmoke;
   margin: 0 5px;
   text-shadow: 0 0 8px rgba(7,7,7,0.9);
 }
@@ -77,6 +78,7 @@ h1 {
   line-height: 2.5;
 }
 
+/* Cards on Generate and Profile Layouts */
 #patternsContainer {
   display: flex;
   justify-content: center;
@@ -122,8 +124,8 @@ h1 {
 
 .btn-purl {
   color: #fff;
-  background-color: #94c481;
-  border-color: #94c481;
+  background-color: var(--green);
+  border-color: var(--green);
 }
 
 .btn-purl:hover{
@@ -135,7 +137,7 @@ h1 {
   background: #f1c344;
 }
 
-/* Form */
+/* Genereate Form */
 #form-container {
   display: flex;
   justify-content: center;
@@ -161,16 +163,13 @@ label {
   margin-bottom: -5px;
 }
 
-#generatePatterns {
-  
-}
 
 /* Buttons */
 button {
   background: rgba(166,77,121,1);
   color: white;
   border-radius: 5px;
-  width: 5rem;
+  width: 50px;
   padding: 5px;
   box-shadow: 0 0 10px rgba(7,7,7,0.8);
 }
@@ -194,6 +193,11 @@ button:focus {
   border-radius: 50%;
 }
 
+.yellowBack {
+  background:var(--yellow);
+  min-height: calc(100vh - 136px);
+}
+
 
 /* All spinner code copied from here https://stackoverflow.com/questions/6091253/overlay-with-spinner/20013732 */
 .spinner {
@@ -207,10 +211,10 @@ button:focus {
   -moz-animation: rotation .6s infinite linear;
   -o-animation: rotation .6s infinite linear;
   animation: rotation .6s infinite linear;
-  border-left:6px solid rgba(0,174,239,.15);
-  border-right:6px solid rgba(0,174,239,.15);
-  border-bottom:6px solid rgba(0,174,239,.15);
-  border-top:6px solid rgba(0,174,239,.8);
+  border-left:6px solid rgb(166,77,121);
+  border-right:6px solid rgb(166,77,121);
+  border-bottom:6px solid rgb(166,77,121);
+  border-top:6px solid rgb(241,195,68);
   border-radius:100%;
 }
 
@@ -237,5 +241,50 @@ button:focus {
   #form-container {
     display: inline-block;
   }
+  .form-options {
+    width: 70vw;
+  }
+
+  .middleLogo {
+    width: 80%;
+    margin: 10vh auto;
+  }
   
+  .logo span {
+    font-size: 120px;
+    margin-left: -0.6rem;
+    line-height: 90px;
+  }
+  
+  .logo-right {
+    font-size: 40px;
+  }
+  
+  .logo-left {
+    font-size: 40px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  #form-container {
+    display: inline-block;
+  }
+  .middleLogo {
+    width: 80%;
+    margin: 10vh auto;
+  }
+  
+  .logo span {
+    font-size: 100px;
+    margin-left: -0.5rem;
+    line-height: 80px;
+  }
+  
+  .logo-right {
+    font-size: 30px;
+  }
+  
+  .logo-left {
+    font-size: 30px;
+  }
 }

@@ -33,19 +33,21 @@
 
 <main style="background-color: #ab5076;">
     <h1>Saved Patterns</h1>
-    <div class="d-flex flex-column p-2" style="background-color: #d9ac32; min-height: calc(100vh - 136px);">
+    <div class="d-flex flex-column p-2 yellowBack" >
         {{#if patterns}}
+      <div class="project-item"> 
             {{#each patterns}}
-                <div class="card" style="width: 18rem; margin: 40px">
+                <div class="card card-properties">
                 <img class="card-img-top imgForCard" id="patternImage3" src={{this.dataValues.patternImage}} alt="Card image cap">
                     <div class="card-body">
                         <h5 class="card-title" id="patternName3">{{this.dataValues.patternName}}</h5>
                         <p class="card-text" id="patternAuthor3">{{this.dataValues.patternAuthor}}</p>
-                        <button id="patternLink" class="linkBtn" target="_blank"><a href={{this.dataValues.patternUrl}} target="_blank"><i class="fas fa-link"></i>Link</a></button>
-                        <button data-id={{this.dataValues.patternId}} id="patternUnsave" class="deleteBtn"><i class="fas fa-trash"></i>Delete</button>
+                        <button id="patternLink" class="link" target="_blank"><a href={{this.dataValues.patternUrl}} target="_blank"><i class="fas fa-link"></i></a></button>
+                        <button data-id={{this.dataValues.patternId}} id="patternUnsave" class="link"><i class="fas fa-trash"></i></button>
                     </div>
                 </div>
             {{/each}}
+        </div>
         {{else}}
         <h1 class="text-center font-weight-bold mb-5">No Saved Patterns</h1>
         <h3 class="text-center font-weight-bold mt-5" style="color: grey;">Directions</h3>
