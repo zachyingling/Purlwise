@@ -33,12 +33,11 @@
 
 <main style="background-color: #ab5076;">
     <h1>Saved Patterns</h1>
-    <div class="d-flex flex-column p-2" style="background-color: #d9ac32; min-height: calc(100vh - 136px);">
+    <div class="d-flex flex-column p-2 yellowBack" >
         {{#if patterns}}
       <div class="project-item"> 
             {{#each patterns}}
                 <div class="card card-properties">
-                {{!-- <div class="card" style="width: 18rem; margin: 40px"> --}}
                 <img class="card-img-top imgForCard" id="patternImage3" src={{this.dataValues.patternImage}} alt="Card image cap">
                     <div class="card-body">
                         <h5 class="card-title" id="patternName3">{{this.dataValues.patternName}}</h5>
