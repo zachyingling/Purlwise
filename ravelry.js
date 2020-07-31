@@ -19,7 +19,6 @@ module.exports = (knitOrCrochet, yarnWeight, articleOfClothing, cb) => {
         var allPatternIDs = [];
         var randomNums = [];
         var allPatterns = [];
-        console.log(results);
 
         for (let i = 0; i < results.patterns.length; i++) {
           if (results.patterns[i].free === true) {
@@ -42,7 +41,7 @@ module.exports = (knitOrCrochet, yarnWeight, articleOfClothing, cb) => {
         }
       })
       .catch(err => {
-        console.log(err);
+        console.log("startFunction ", err);
       });
   };
 
@@ -64,7 +63,7 @@ module.exports = (knitOrCrochet, yarnWeight, articleOfClothing, cb) => {
         return cb(newPattern);
       })
       .catch(err => {
-        console.log(err);
+        console.log("outputFunction ", err);
       });
   };
 

@@ -34,7 +34,9 @@ $(document).ready(() => {
     });
   });
 
-  $("#generatePatterns").on("click", function() {
+  $("#generatePatterns").on("click", function(event) {
+    event.preventDefault();
+
     if ($("#patternsContainer").hasClass("d-block")) {
       $("#patternsContainer")
         .removeClass("d-block")
