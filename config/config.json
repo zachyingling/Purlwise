@@ -8,9 +8,9 @@
     "dialect": "mysql"
   },
   "test": {
-    "username": "root",
-    "password": "password",
-    "database": "testdb",
+    "username": "test",
+    "password": "",
+    "database": "purlwise",
     "host": "localhost",
     "dialect": "mysql",
     "logging": false

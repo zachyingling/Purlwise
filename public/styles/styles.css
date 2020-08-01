@@ -6,21 +6,27 @@ html {
 box-sizing: inherit;
 } 
 
-body {
-  margin: 0 auto;
-  font-family: 'Poppins', sans-serif;
-}
-
 :root {
   --yellow: #f1c344;
   --purp: #A64D79;
   --green: #94c481;
+  --white: whitesmoke;
+}
+
+body {
+  margin: 0 auto;
+  font-family: 'Poppins', sans-serif;
+  font-size: 18px;
+  line-height: 1.6rem;
+  letter-spacing: 1px;
+  background: var(--yellow);
 }
 
 
 .middleLogo {
   width: 80%;
   margin: 10vh auto;
+  padding: 40px;
 }
 
 .logo span {
@@ -66,22 +72,39 @@ h1 {
 /* Nav Bar */
 .nav-style{
   color: whitesmoke;
-  margin: 0 5px;
-  text-shadow: 0 0 8px rgba(7,7,7,0.9);
+  margin: 0 15px;
+  text-shadow: 0 0 4px rgba(7,7,7,0.2);
+  overflow: hidden;
+  padding: 14px, 16px;
+}
+
+.fullWidth {
+  width: 100%;
 }
 
 .active {
   font-weight: 900;
+  color: var(--yellow);
+  font-size: 20px;
 }
 
 .list-group-item {
   line-height: 2.5;
 }
-.navMenu {
-  background: whitesmoke;
-  color: black;
+/* The sticky class is added to the navbar with JS when it reaches its scroll position */
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
 }
 
+/* Add some top padding to the page content to prevent sudden quick movement (as the navigation bar gets a new position at the top of the page (position:fixed and top:0) */
+.sticky + .content {
+  padding-top: 60px;
+}
+.content {
+  padding: 16px;
+}
 /* Cards on Generate and Profile Layouts */
 #patternsContainer {
   display: flex;
@@ -137,13 +160,23 @@ h1 {
   color: rgb(237, 237, 237);
 }
 
-.yellowBack {
-  width: 100%;
-  background: var(--yellow);
+.whiteBack {
+  background: var(--white);
 }
+
+.purpBack {
+  width: 100%;
+  background: var(--purp);
+}
+
 .greenBack {
   width: 100%;
   background: var(--green);
+}
+
+#noPatterns {
+  margin: 5% 10%;
+  text-align: center;
 }
 
 /* Genereate Form */

@@ -1,8 +1,8 @@
 <!-- Nav Bar -->
-<nav class="navbar navbar-expand-lg navbar-light greenBack">
-    <div class="row" style="width: 100%">
+<nav class="navbar navbar-expand-lg greenBack">
+    <div class="row fullWidth">
         <div class="col">
-            <div class="collapse navbar-collapse" id="navbarNav" style="padding: 12px 0px">
+            <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-style">
                         <a href="/home">Home</a>
@@ -11,13 +11,13 @@
                         <a href="/generate">Generate<span class="sr-only">(current)</a>
                     </li>
                     <li class="nav-style active">
-                        <a href="/profile" onclick="return false;">Profile</a>
+                        <a href="/profile" onclick="return false;">Saved Patterns</a>
                     </li>
                 </ul>
             </div>
         </div>
         
-        <div class="col-4" style="display: inherit;">
+        <div class="col-4">
             <img class="profImg" src={{user.profilePicUrl}} alt="user profile image" /> {{user.username}}
                 <a href="/logout"> <i class="fas fa-sign-out-alt"></i></a>
         </div>
@@ -26,9 +26,9 @@
 </nav>
 
 
-<main style="background-color: #ab5076;">
-    <h1>Saved Patterns</h1>
-    <div class="d-flex flex-column p-2 yellowBack" >
+<div class="purpBack">
+    {{!-- <h1>Saved Patterns</h1> --}}
+    <div class="yellowBack" >
         {{#if patterns}}
       <div class="project-item"> 
             {{#each patterns}}
@@ -44,10 +44,12 @@
             {{/each}}
         </div>
         {{else}}
-        <h1 class="text-center font-weight-bold mb-5">No Saved Patterns</h1>
-        <h3 class="text-center font-weight-bold mt-5" style="color: grey;">Directions</h3>
-        <h5 class="text-center font-italic" style="color: grey;">Click "Generate" on the top left corner and select the article of clothing, yarn weight, and if you will be Knitting or Crochet. Then press submit to generate your patterns.</h5>
+            <div id="noPatterns">            
+                <h1>No Saved Patterns</h1>
+                {{!-- <h3>Directions</h3> --}}
+                <p>Click "Generate" on the top left corner and select the article of clothing, yarn weight, and if you will be Knitting or Crochet. Then press submit to generate your patterns.</p>
+            </div>
         {{/if}}
     </div>
-</main>
+</div>
 <script type="text/javascript" src="/js/profileFront.js"></script>

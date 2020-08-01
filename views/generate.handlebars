@@ -1,8 +1,8 @@
 <!-- Nav Bar -->
-<nav class="navbar navbar-expand-lg navbar-light greenBack">
-    <div class="row" style="width: 100%">
+<nav  class="navbar navbar-expand-lg greenBack">
+    <div class="row fullWidth">
         <div class="col">
-            <div class="collapse navbar-collapse" id="navbarNav" style="padding: 12px 0px">
+            <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-style">
                         <a href="/home">Home</a>
@@ -11,19 +11,20 @@
                         <a href="/generate" onclick="return false;">Generate<span class="sr-only">(current)</a>
                     </li>
                     <li class="nav-style">
-                        <a href="/profile">Profile</a>
+                        <a href="/profile">Saved Patterns</a>
                     </li>
                 </ul>
             </div>
         </div>
         
-        <div class="col-4" style="display: inherit;">
+        <div class="col-4">
             <img class="profImg" src={{user.profilePicUrl}} alt="user profile image" /> {{user.username}}
                 <a href="/logout"> <i class="fas fa-sign-out-alt"></i></a>
         </div>
         <h1>Purlwise</h1>
     </div>
 </nav>
+
 
 <!-- Form -->
 <div class="yellowBack">
@@ -57,7 +58,7 @@
     </div>
 
     <div class="form-option">
-      <label for="articleOfClothing">Clothing:</label>
+      <label for="articleOfClothing">Clothing Type:</label>
       <select name="articleOfClothing" class="form-options" id="articleOfClothing">
         <option selected>Select Article of Clothing</option>
         <option value="Socks">Socks</option>
@@ -73,7 +74,7 @@
   </div>
 
   </form>
-</div>
+
         <p style="font-family: 'Poppins', sans-serif;">Prow scuttle parrel provost Sail ho shrouds spirits boom mizzenmast yardarm. Pinnace holystone mizzenmast quarter crow's nest nipperkin grog yardarm hempen halter furl. Swab barque interloper chantey doubloon starboard grog black jack gangway rutters.</p>
         <p style="font-family: 'Raleway', sans-serif;">Prow scuttle parrel provost Sail ho shrouds spirits boom mizzenmast yardarm. Pinnace holystone mizzenmast quarter crow's nest nipperkin grog yardarm hempen halter furl. Swab barque interloper chantey doubloon starboard grog black jack gangway rutters.</p>
 
@@ -144,7 +145,7 @@
           </div>
         </div>
        </div>
-
+</div>
   </div>
-</main>
+
 <script type="text/javascript" src="/js/ravelryFront.js"></script>
