@@ -23,7 +23,7 @@ $(document).ready(() => {
         alert("Error saving. Error code: " + errorThrown);
       }
     }).then(function(data) {
-      console.log(data);
+      // console.log(data);
       if (data.saved === "done") {
         alert("Saved pattern");
       } else if (data.saved === "already") {
@@ -103,4 +103,5 @@ $(document).ready(() => {
       }
     });
   });
+
 });

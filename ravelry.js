@@ -41,7 +41,7 @@ module.exports = (knitOrCrochet, yarnWeight, articleOfClothing, cb) => {
         }
       })
       .catch(err => {
-        console.log("startFunction ", err);
+        console.log("startFunction Error", err);
       });
   };
 

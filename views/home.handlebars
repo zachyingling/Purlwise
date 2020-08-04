@@ -1,36 +1,31 @@
 <!-- Nav Bar -->
-<nav class="navbar navbar-expand-lg navbar-light sticky" style="background-color: #94c481;">
-    <div class="row" style="width: 100%">
+<nav class="navbar navbar-expand-lg sticky greenBack">
+    <div class="row fullWidth">
         <div class="col">
-            <div class="collapse navbar-collapse" id="navbarNav" style="padding: 12px 0px">
+            <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-style active">
                         <a href="/home" onclick="return false;">Home</a>
-                    </li>
+                    </li> 
                     <li class="nav-style">
                         <a href="/generate">Generate<span class="sr-only">(current)</a>
-                    </li>
+                    </li> 
                     <li class="nav-style">
-                        <a href="/profile">Profile</a>
+                        <a href="/profile">Saved Patterns</a>
                     </li>
                 </ul>
             </div>
         </div>
         
-        <div class="col-4" style="display: inherit;">
-            <img class="profImg" src={{user.profilePicUrl}}>
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                {{user.username}}
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="/logout">Logout</a>
-            </div>
+        <div class="col-4">
+            <img class="profImg" src={{user.profilePicUrl}} alt="user profile image" /> {{user.username}}
+                <a href="/logout"> <i class="fas fa-sign-out-alt"></i></a>
         </div>
         <h1>Purlwise</h1>
     </div>
 </nav>
 
-<div>
+<div class="whiteBack">
     <div class="middleLogo">
     <h2 class="yellow logo-left">Welcome to</h2>
     
@@ -43,19 +38,17 @@
     <h2 class="green logo-right">A free pattern bank</h3>
     </div>
 </div>
+</div>
 
-<main style="background-color: #f1c344;">
-    <div class="container pt-4 pb-4">
+    <div class="container pb-4">
         <div class="row">
-            <div class="col-6 mt-4 mb-4">
+            <div class="col-6 mb-4">
                 <h1>Description</h1>
-                <h3>When embarking on handmade projects it can be easy to overspend, overcommit and overestimate your skill level. This free pattern bank was designed as a gateway to yarn crafts for makers of all ages and experience. Purlwise allows you to tailor your search query by pattern type, yarn weight, and clothing type. Patterns that appear will always be free and at a novice level, which you may save to your user profile for future projects.
-</h3>
+                <p>When embarking on handmade projects it can be easy to overspend, overcommit and overestimate your skill level. This free pattern bank was designed as a gateway to yarn crafts for makers of all ages and experience. Purlwise allows you to tailor your search query by pattern type, yarn weight, and clothing type. Patterns that appear will always be free and at a novice level, which you may save to your user profile for future projects.</p>
             </div>
-            <div class="col-6 mt-4 mb-4">
+            <div class="col-6 mb-4">
                 <h1>Getting Started</h1>
-                <h3>Click "Generate" at the top left of the page. Using the dropdown menus specify the type of pattern you're looking for. Press submit to generate your patterns. Click "Profile" to the right of "Generate" at the top left of the page to view or edit saved patterns. </h3>
+                <p>Click "Generate" at the top left of the page. Using the dropdown menus specify the type of pattern you're looking for. Press submit to generate your patterns. Click "Profile" to the right of "Generate" at the top left of the page to view or edit saved patterns. </p>
             </div>
         </div>
     </div>
-</main>
