@@ -22,7 +22,6 @@ body {
   background: var(--yellow);
 }
 
-
 .middleLogo {
   width: 80%;
   margin: 10vh auto;
@@ -70,6 +69,62 @@ h1 {
 }
 
 /* Nav Bar */
+
+body.fixed-nav .site-wrap {
+  transform: scale(1);
+}
+
+.site-wrap {
+  transform: scale(0.98);
+  transition: transform 0.5s;
+}
+
+nav {
+  background: black;
+  top: 0;
+  width: 100%;
+  transition:all 0.5s;
+  position: relative;
+  z-index: 1;
+}
+
+body.fixed-nav nav {
+  position: fixed;
+  box-shadow: 0 5px 0 rgba(0,0,0,0.1);
+}
+
+nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+}
+
+nav li {
+  flex: 1;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+li.purlwiseLogo {
+  max-width: 0;
+  overflow: hidden;
+  background: whitesmoke;
+  transition: all 1s;
+  font-weight: 600;
+  font-size: 30px;
+}
+
+li.purlwiseLogo a {
+  color: black;
+}
+
+.fixed-nav li.purlwiseLogo {
+  max-width: 500px;
+}
+
 .nav-style{
   color: whitesmoke;
   margin: 0 15px;
@@ -288,7 +343,7 @@ button:focus {
 
 /* Media Queries */
 /* Generate Form */
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 900px) {
   #form-container {
     display: inline-block;
   }
@@ -316,7 +371,7 @@ button:focus {
   }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 660px) {
   #form-container {
     display: inline-block;
   }
