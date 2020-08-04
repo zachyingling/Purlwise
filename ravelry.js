@@ -4,6 +4,7 @@ var rav = Ravelry.basic({
   ravAccessKey: keys.ravAccessKey,
   ravPersonalKey: keys.ravPersonalKey
 });
+var allPatternIDs = [];
 
 module.exports = (knitOrCrochet, yarnWeight, articleOfClothing, cb) => {
   const startFunction = (knitOrCrochet, yarnWeight, articleOfClothing) => {
@@ -16,9 +17,9 @@ module.exports = (knitOrCrochet, yarnWeight, articleOfClothing, cb) => {
         page_size: 200
       })
       .then(results => {
-        var allPatternIDs = [];
-        var randomNums = [];
-        var allPatterns = [];
+        // var allPatternIDs = [];
+        // var randomNums = [];
+        // var allPatterns = [];
 
         for (let i = 0; i < results.patterns.length; i++) {
           if (results.patterns[i].free === true) {
@@ -27,23 +28,48 @@ module.exports = (knitOrCrochet, yarnWeight, articleOfClothing, cb) => {
           }
         }
 
-        for (let i = 0; i < 6; i++) {
-          randomNums.push(Math.floor(Math.random() * allPatternIDs.length));
-        }
+        randomNumber(allPatternIDs);
 
-        for (let i = 0; i < randomNums.length; i++) {
-          outputFunction(allPatternIDs[randomNums[i]], function(data) {
-            allPatterns.push(data);
-            if (allPatterns.length === 6) {
-              return cb(allPatterns);
-            }
-          });
-        }
+        // for (let i = 0; i < 6; i++) {
+        //   randomNums.push(Math.floor(Math.random() * allPatternIDs.length));
+        // }
+
+        // for (let i = 0; i < randomNums.length; i++) {
+        //   outputFunction(allPatternIDs[randomNums[i]], function(data) {
+        //     allPatterns.push(data);
+        //     if (allPatterns.length === 6) {
+        //       return cb(allPatterns);
+        //     }
+        //   });
+        // }
       })
       .catch(err => {
         console.log("startFunction Error", err);
       });
   };
+
+  //Selects 6 random patterns
+  function randomNumber(allPatternIDs) {
+    var randomNums = [];
+    for (let i = 0; i < 6; i++) {
+      randomNums.push(Math.floor(Math.random() * allPatternIDs.length));
+    }
+    allPatterns(allPatternIDs,randomNums);
+  }
+
+  //Returns the information for 6 selected patterns
+  function allPatterns (allPatternIDs,randomNums) {
+    var allPatterns = [];
+    for (let i = 0; i < randomNums.length; i++) {
+      outputFunction(allPatternIDs[randomNums[i]], function(data) {
+        allPatterns.push(data);
+        if (allPatterns.length === 6) {
+          console.log(allPatterns);
+          return cb(allPatterns);
+        }
+      });
+    }
+  }
 
   const outputFunction = (num, cb) => {
     // This has to be in here because of asyncronous issues
