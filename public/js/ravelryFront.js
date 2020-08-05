@@ -81,7 +81,7 @@ $(document).ready(() => {
         articleOfClothing: articleOfClothing
       },
       dataType: "json",
-      error: function(jqXHR, textStatus, errorThrown) {
+      error: function(errorThrown) {
         alert(
           "Error code: " + errorThrown + "\n Please refresh and try again."
         );

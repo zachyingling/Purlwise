@@ -16,7 +16,7 @@ box-sizing: inherit;
 body {
   margin: 0 auto;
   font-family: 'Poppins', sans-serif;
-  font-size: 18px;
+  font-size: 20px;
   line-height: 1.6rem;
   letter-spacing: 1px;
   background: var(--yellow);
@@ -34,6 +34,7 @@ body {
   font-weight: 900;
   font-family: 'Lato', sans-serif;
   line-height: 150px;
+  text-shadow: none;
 }
 
 .logo-right {
@@ -66,7 +67,7 @@ h1 {
   color: whitesmoke;
   font-family: 'Lato', sans-serif;
   letter-spacing: -0.8px;
-}
+  text-shadow: 0 0 5px rgba(7,7,7,0.6);}
 
 /* Nav Bar */
 
@@ -85,6 +86,7 @@ nav {
   width: 100%;
   transition:all 0.5s;
   position: relative;
+  text-shadow: 0 0 5px rgba(7,7,7,0.4);
   z-index: 1;
 }
 
@@ -140,8 +142,8 @@ li.purlwiseLogo a {
 .active {
   font-weight: 900;
   color: var(--yellow);
-  font-size: 20px;
-  text-shadow: 0 0 7px rgba(7,7,7,0.4);
+  font-size: 25px;
+  text-shadow: 0 0 8px rgba(7,7,7,0.75);
 }
 
 .list-group-item {
