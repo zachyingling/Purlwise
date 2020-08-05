@@ -6,7 +6,6 @@ var rav = Ravelry.basic({
 });
 let allPatternIDs = [];
 let randomNums = [];
-let allPatterns = [];
 
 module.exports = (knitOrCrochet, yarnWeight, articleOfClothing, cb) => {
   const startFunction = (knitOrCrochet, yarnWeight, articleOfClothing) => {
@@ -19,10 +18,6 @@ module.exports = (knitOrCrochet, yarnWeight, articleOfClothing, cb) => {
         page_size: 200
       })
       .then(results => {
-        // var allPatternIDs = [];
-        // var randomNums = [];
-        // var allPatterns = [];
-
         for (let i = 0; i < results.patterns.length; i++) {
           if (results.patterns[i].free === true) {
             var idGettingPushedBeforeSorted = results.patterns[i].id;
@@ -47,7 +42,7 @@ module.exports = (knitOrCrochet, yarnWeight, articleOfClothing, cb) => {
 
   //Returns the information for 6 selected patterns
   function allPatterns () {
-    allPatterns = [];
+    let allPatterns = [];
     for (let i = 0; i < randomNums.length; i++) {
       outputFunction(allPatternIDs[randomNums[i]], function(data) {
         allPatterns.push(data);
