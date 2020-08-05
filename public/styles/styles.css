@@ -141,37 +141,39 @@ li.purlwiseLogo a {
   font-weight: 900;
   color: var(--yellow);
   font-size: 20px;
+  text-shadow: 0 0 7px rgba(7,7,7,0.4);
 }
 
 .list-group-item {
   line-height: 2.5;
 }
-/* The sticky class is added to the navbar with JS when it reaches its scroll position */
-.sticky {
-  position: fixed;
-  top: 0;
-  width: 100%;
+
+/* Cards on Generate and Profile Layouts*/
+.project-item {
+  display: grid;
+  padding: 1rem;
+  grid-template-columns: repeat(2, 1fr);
+  grid-row-gap: 1rem;
 }
 
-/* Add some top padding to the page content to prevent sudden quick movement (as the navigation bar gets a new position at the top of the page (position:fixed and top:0) */
-.sticky + .content {
-  padding-top: 60px;
-}
-.content {
-  padding: 16px;
-}
-/* Cards on Generate and Profile Layouts */
-#patternsContainer {
+.buttons {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
+.card-body {
+  padding: 10px !important;
+}
+
 .card-properties {
-  float: left;
-  margin: 0.8rem;
+  position: relative;
+  height: 400px;
+  margin: 0.5rem 1rem;
   box-shadow: 0 0 35px rgba(7,7,7,0.95);
+  border-radius: 8px;
 } 
+
 .card-properties:hover {
   box-shadow: 0 0 18px rgba(7,7,7,1);
 }
@@ -187,14 +189,9 @@ li.purlwiseLogo a {
   object-fit: cover;
   height: 300px;
   overflow: hidden;
+  border-top-right-radius: 8px;
+  border-top-left-radius: 8px;
 }
-
-.card-properties {
-  width: 400px;
-  height: 500px;
-  margin: 0.5rem 1rem;
-}
-
 
 .logo-image {
   background: url('../assets/purlwiseLogo.png');
@@ -213,6 +210,8 @@ li.purlwiseLogo a {
 
 .btn-purl:hover{
   color: rgb(237, 237, 237);
+  box-shadow: 0 0 8px rgba(7,7,7,0.2);
+  transform: scale(1.1);
 }
 
 .whiteBack {
@@ -255,14 +254,23 @@ li.purlwiseLogo a {
   padding: 5px;
 }
 
+.form-options:focus {
+  outline: none;
+}
+
 label {
   text-align: left;
   margin-bottom: -5px;
 }
 
-#submit {
+#submit, #next {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 90%;
-  margin: 0 auto;
+  margin: 10px auto;
+  font-size: 30px;
+  padding: 5px;
 }
 
 #generatePatterns{
@@ -296,8 +304,12 @@ button:focus {
   outline: none;
 }
 
+
 .link {
   border-radius: 50%;
+  position: relative;
+  flex: 1;
+  margin: 0 15%;
 }
 
 .yellowBack {
@@ -344,6 +356,17 @@ button:focus {
 /* Media Queries */
 /* Generate Form */
 @media screen and (max-width: 900px) {
+  body {
+    font-size: 16px;
+    line-height: 1.4rem;
+    letter-spacing: 1px;
+  }
+
+  li.purlwiseLogo, .active {
+    font-size: 18px;
+    font-weight: 700;
+  }
+
   #form-container {
     display: inline-block;
   }

@@ -4,7 +4,7 @@
     <ul>
         <li class="purlwiseLogo"><a href="/home">Purlwise</a></li>
         <li><a href="/home">Home</a></li>
-        <li><a href="/generate">Generate</a></li>
+        <li><a class='active' href="/generate">Generate</a></li>
         <li><a href="/profile">Saved Patterns</a></li>
         <li>
             <a href="/logout"><img class="profImg" src={{user.profilePicUrl}} alt="user profile image" /> {{user.username}}<i class="fas fa-sign-out-alt"></i></a>
@@ -59,13 +59,10 @@
   <div id="submit">
     <button id="generatePatterns" type="submit">Submit</button>
   </div>
-
   </form>
 
-        <p style="font-family: 'Poppins', sans-serif;">Prow scuttle parrel provost Sail ho shrouds spirits boom mizzenmast yardarm. Pinnace holystone mizzenmast quarter crow's nest nipperkin grog yardarm hempen halter furl. Swab barque interloper chantey doubloon starboard grog black jack gangway rutters.</p>
-        <p style="font-family: 'Raleway', sans-serif;">Prow scuttle parrel provost Sail ho shrouds spirits boom mizzenmast yardarm. Pinnace holystone mizzenmast quarter crow's nest nipperkin grog yardarm hempen halter furl. Swab barque interloper chantey doubloon starboard grog black jack gangway rutters.</p>
-
-
+        {{!-- <p style="font-family: 'Poppins', sans-serif;">Prow scuttle parrel provost Sail ho shrouds spirits boom mizzenmast yardarm. Pinnace holystone mizzenmast quarter crow's nest nipperkin grog yardarm hempen halter furl. Swab barque interloper chantey doubloon starboard grog black jack gangway rutters.</p>
+        <p style="font-family: 'Raleway', sans-serif;">Prow scuttle parrel provost Sail ho shrouds spirits boom mizzenmast yardarm. Pinnace holystone mizzenmast quarter crow's nest nipperkin grog yardarm hempen halter furl. Swab barque interloper chantey doubloon starboard grog black jack gangway rutters.</p> --}}
 
   <div class="spinner d-none" id="spinnerDiv"></div>
 
@@ -77,8 +74,10 @@
           <div class="card-body">
             <h5 class="card-title" id="patternName1">Card title</h5>
             <p class="card-text" id="patternAuthor1">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <button class="link"><a href="" id="patternLink1" target="_blank"><i class="fas fa-link"></i></a></button>
-            <button class="link"><a data-id="" id="patternSave1" class="save-btn"><i class="fas fa-heart"></i></a></button>
+            <div class="buttons">
+              <button class="link"><a href="" id="patternLink1" target="_blank"><i class="fas fa-link"></i></a></button>
+              <button class="link toast"><a data-id="" id="patternSave1" class="save-btn"><i class="fas fa-heart"></i></a></button>
+            </div>
           </div>
         </div>
 
@@ -87,50 +86,67 @@
           <div class="card-body">
             <h5 class="card-title" id="patternName2">Card title</h5>
             <p class="card-text" id="patternAuthor2">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <button class="link"><a href="" id="patternLink2" target="_blank"><i class="fas fa-link"></i></a></button>
-            <button class="link"><a data-id="" id="patternSave2" class="save-btn"><i class="fas fa-heart"></i></a></button>
+            <div class="buttons">
+              <button class="link"><a href="" id="patternLink2" target="_blank"><i class="fas fa-link"></i></a></button>
+              <button class="link"><a data-id="" id="patternSave2" class="save-btn"><i class="fas fa-heart"></i></a></button>
+            </div>
           </div>
         </div>
+      {{!-- </div>
 
+      <div class="project-item"> --}}
         <div class="card card-properties">
           <img class="card-img-top imgForCard" id="patternImage3" src="" alt="Card image cap">
           <div class="card-body">
-            <h5 class="card-title" id="patternName3">Card title</h5>
-            <p class="card-text" id="patternAuthor3">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <button class="link"><a href="" id="patternLink3" target="_blank"><i class="fas fa-link"></i></a></button>
-            <button class="link"><a data-id="" id="patternSave3" class="save-btn"><i class="fas fa-heart"></i></a></button>
+            <h5 class="card-title" id="patternName3"></h5>
+            <p class="card-text" id="patternAuthor3"></p>
+            <div class="buttons">
+              <button class="link"><a href="" id="patternLink3" target="_blank"><i class="fas fa-link"></i></a></button>
+              <button class="link"><a data-id="" id="patternSave3" class="save-btn"><i class="fas fa-heart"></i></a></button>
+            </div>
           </div>
         </div>
 
         <div class="card card-properties">
           <img class="card-img-top imgForCard" id="patternImage4" src="" alt="Card image cap">
           <div class="card-body">
-            <h5 class="card-title" id="patternName4">Card title</h5>
-            <p class="card-text" id="patternAuthor4">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <button class="link"><a href="" id="patternLink4" target="_blank"><i class="fas fa-link"></i></a></button>
-            <button class="link"><a data-id="" id="patternSave4" class="save-btn"><i class="fas fa-heart"></i></a></button>
+            <h5 class="card-title" id="patternName4"></h5>
+            <p class="card-text" id="patternAuthor4"></p>
+            <div class="buttons">
+              <button class="link"><a href="" id="patternLink4" target="_blank"><i class="fas fa-link"></i></a></button>
+              <button class="link"><a data-id="" id="patternSave4" class="save-btn"><i class="fas fa-heart"></i></a></button>
+            </div>
           </div>
         </div>
+      {{!-- </div>
 
+      <div class="project-item"> --}}
         <div class="card card-properties">
           <img class="card-img-top imgForCard" id="patternImage5" src="" alt="Card image cap">
           <div class="card-body">
-            <h5 class="card-title" id="patternName5">Card title</h5>
-            <p class="card-text" id="patternAuthor5">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <button class="link"><a href="" id="patternLink5" target="_blank"><i class="fas fa-link"></i></a></button>
-            <button class="link"><a data-id="" id="patternSave5" class="save-btn"><i class="fas fa-heart"></i></a></button>
+            <h5 class="card-title" id="patternName5"></h5>
+            <p class="card-text" id="patternAuthor5"></p>
+            <div class="buttons">
+              <button class="link"><a href="" id="patternLink5" target="_blank"><i class="fas fa-link"></i></a></button>
+              <button class="link"><a data-id="" id="patternSave5" class="save-btn"><i class="fas fa-heart"></i></a></button>
+            </div>
           </div>
         </div>
 
         <div class="card card-properties">
           <img class="card-img-top imgForCard" id="patternImage6" src="" alt="Card image cap">
           <div class="card-body">
-            <h5 class="card-title" id="patternName6">Card title</h5>
-            <p class="card-text" id="patternAuthor6">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <button class="link"><a href="" id="patternLink6" target="_blank"><i class="fas fa-link"></i></a></button>
-            <button class="link"><a data-id="" id="patternSave6" class="save-btn"><i class="fas fa-heart"></i></a></button>
+            <h5 class="card-title" id="patternName6"></h5>
+            <p class="card-text" id="patternAuthor6"></p>
+            <div class="buttons">
+              <button class="link"><a href="" id="patternLink6" target="_blank"><i class="fas fa-link"></i></a></button>
+              <button class="link"><a data-id="" id="patternSave6" class="save-btn"><i class="fas fa-heart"></i></a></button>
+            </div>
           </div>
         </div>
+       </div>
+       <div class="next">
+         <button id="next">Next</button>
        </div>
 </div>
   </div>

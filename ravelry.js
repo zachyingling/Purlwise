@@ -4,6 +4,9 @@ var rav = Ravelry.basic({
   ravAccessKey: keys.ravAccessKey,
   ravPersonalKey: keys.ravPersonalKey
 });
+let allPatternIDs = [];
+let randomNums = [];
+let allPatterns = [];
 
 module.exports = (knitOrCrochet, yarnWeight, articleOfClothing, cb) => {
   const startFunction = (knitOrCrochet, yarnWeight, articleOfClothing) => {
@@ -16,9 +19,9 @@ module.exports = (knitOrCrochet, yarnWeight, articleOfClothing, cb) => {
         page_size: 200
       })
       .then(results => {
-        var allPatternIDs = [];
-        var randomNums = [];
-        var allPatterns = [];
+        // var allPatternIDs = [];
+        // var randomNums = [];
+        // var allPatterns = [];
 
         for (let i = 0; i < results.patterns.length; i++) {
           if (results.patterns[i].free === true) {
@@ -26,24 +29,35 @@ module.exports = (knitOrCrochet, yarnWeight, articleOfClothing, cb) => {
             allPatternIDs.push(idGettingPushedBeforeSorted);
           }
         }
-
-        for (let i = 0; i < 6; i++) {
-          randomNums.push(Math.floor(Math.random() * allPatternIDs.length));
-        }
-
-        for (let i = 0; i < randomNums.length; i++) {
-          outputFunction(allPatternIDs[randomNums[i]], function(data) {
-            allPatterns.push(data);
-            if (allPatterns.length === 6) {
-              return cb(allPatterns);
-            }
-          });
-        }
+        randomNumber();
       })
       .catch(err => {
         console.log("startFunction Error", err);
       });
   };
+
+  //Selects 6 random patterns
+  function randomNumber() {
+    randomNums = [];
+    for (let i = 0; i < 6; i++) {
+      randomNums.push(Math.floor(Math.random() * allPatternIDs.length));
+    }
+    allPatterns();
+  }
+
+  //Returns the information for 6 selected patterns
+  function allPatterns () {
+    allPatterns = [];
+    for (let i = 0; i < randomNums.length; i++) {
+      outputFunction(allPatternIDs[randomNums[i]], function(data) {
+        allPatterns.push(data);
+        if (allPatterns.length === 6) {
+          console.log(allPatterns);
+          return cb(allPatterns);
+        }
+      });
+    }
+  }
 
   const outputFunction = (num, cb) => {
     // This has to be in here because of asyncronous issues
