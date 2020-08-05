@@ -146,32 +146,23 @@ li.purlwiseLogo a {
 .list-group-item {
   line-height: 2.5;
 }
-/* The sticky class is added to the navbar with JS when it reaches its scroll position */
-.sticky {
-  position: fixed;
-  top: 0;
-  width: 100%;
-}
 
-/* Add some top padding to the page content to prevent sudden quick movement (as the navigation bar gets a new position at the top of the page (position:fixed and top:0) */
-.sticky + .content {
-  padding-top: 60px;
-}
-.content {
-  padding: 16px;
-}
 /* Cards on Generate and Profile Layouts */
-#patternsContainer {
+.project-item, .buttons {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .card-properties {
-  float: left;
-  margin: 0.8rem;
+  position: relative;
+  flex: 1;
+  width: 400px;
+  height: 500px;
+  margin: 0.5rem 1rem;
   box-shadow: 0 0 35px rgba(7,7,7,0.95);
 } 
+
 .card-properties:hover {
   box-shadow: 0 0 18px rgba(7,7,7,1);
 }
@@ -188,13 +179,6 @@ li.purlwiseLogo a {
   height: 300px;
   overflow: hidden;
 }
-
-.card-properties {
-  width: 400px;
-  height: 500px;
-  margin: 0.5rem 1rem;
-}
-
 
 .logo-image {
   background: url('../assets/purlwiseLogo.png');
@@ -255,6 +239,10 @@ li.purlwiseLogo a {
   padding: 5px;
 }
 
+.form-options:focus {
+  outline: none;
+}
+
 label {
   text-align: left;
   margin-bottom: -5px;
@@ -296,8 +284,12 @@ button:focus {
   outline: none;
 }
 
+
 .link {
   border-radius: 50%;
+  position: relative;
+  flex: 1;
+  margin: 0 15%;
 }
 
 .yellowBack {

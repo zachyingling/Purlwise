@@ -1,4 +1,5 @@
 $(document).ready(() => {
+
   $(".save-btn").on("click", function() {
     var patternId = $(this).attr("data-id");
     var idValue = $(this).attr("id");
@@ -24,7 +25,7 @@ $(document).ready(() => {
       }
     }).then(function(data) {
       // console.log(data);
-      if (data.saved === "done") {
+      if (data.saved === "done") { 
         alert("Saved pattern");
       } else if (data.saved === "already") {
         alert("You have already saved this pattern");
