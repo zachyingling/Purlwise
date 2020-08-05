@@ -4,7 +4,7 @@
     <ul>
         <li class="purlwiseLogo"><a href="/home">Purlwise</a></li>
         <li><a href="/home">Home</a></li>
-        <li><a href="/generate">Generate</a></li>
+        <li><a class='active' href="/generate">Generate</a></li>
         <li><a href="/profile">Saved Patterns</a></li>
         <li>
             <a href="/logout"><img class="profImg" src={{user.profilePicUrl}} alt="user profile image" /> {{user.username}}<i class="fas fa-sign-out-alt"></i></a>
@@ -92,9 +92,9 @@
             </div>
           </div>
         </div>
-      </div>
+      {{!-- </div>
 
-      <div class="project-item">
+      <div class="project-item"> --}}
         <div class="card card-properties">
           <img class="card-img-top imgForCard" id="patternImage3" src="" alt="Card image cap">
           <div class="card-body">
@@ -118,9 +118,9 @@
             </div>
           </div>
         </div>
-      </div>
+      {{!-- </div>
 
-      <div class="project-item">
+      <div class="project-item"> --}}
         <div class="card card-properties">
           <img class="card-img-top imgForCard" id="patternImage5" src="" alt="Card image cap">
           <div class="card-body">
@@ -144,6 +144,9 @@
             </div>
           </div>
         </div>
+       </div>
+       <div class="next">
+         <button id="next">Next</button>
        </div>
 </div>
   </div>

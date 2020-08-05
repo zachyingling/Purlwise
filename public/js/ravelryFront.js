@@ -35,6 +35,23 @@ $(document).ready(() => {
     });
   });
 
+  //Generate next 6 patterns
+  $("#next").on("click", function() {
+    console.log('made it');
+    if ($("#patternsContainer").hasClass("d-block")) {
+      $("#patternsContainer")
+        .removeClass("d-block")
+        .addClass("d-none");
+    }
+
+    if ($("#spinnerDiv").hasClass("d-none")) {
+      $("#spinnerDiv")
+        .removeClass("d-none")
+        .addClass("d-block");
+    }
+
+  })
+
   $("#generatePatterns").on("click", function(event) {
     event.preventDefault();
 

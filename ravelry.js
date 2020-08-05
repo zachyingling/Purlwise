@@ -4,7 +4,9 @@ var rav = Ravelry.basic({
   ravAccessKey: keys.ravAccessKey,
   ravPersonalKey: keys.ravPersonalKey
 });
-var allPatternIDs = [];
+let allPatternIDs = [];
+let randomNums = [];
+let allPatterns = [];
 
 module.exports = (knitOrCrochet, yarnWeight, articleOfClothing, cb) => {
   const startFunction = (knitOrCrochet, yarnWeight, articleOfClothing) => {
@@ -27,21 +29,7 @@ module.exports = (knitOrCrochet, yarnWeight, articleOfClothing, cb) => {
             allPatternIDs.push(idGettingPushedBeforeSorted);
           }
         }
-
-        randomNumber(allPatternIDs);
-
-        // for (let i = 0; i < 6; i++) {
-        //   randomNums.push(Math.floor(Math.random() * allPatternIDs.length));
-        // }
-
-        // for (let i = 0; i < randomNums.length; i++) {
-        //   outputFunction(allPatternIDs[randomNums[i]], function(data) {
-        //     allPatterns.push(data);
-        //     if (allPatterns.length === 6) {
-        //       return cb(allPatterns);
-        //     }
-        //   });
-        // }
+        randomNumber();
       })
       .catch(err => {
         console.log("startFunction Error", err);
@@ -49,17 +37,17 @@ module.exports = (knitOrCrochet, yarnWeight, articleOfClothing, cb) => {
   };
 
   //Selects 6 random patterns
-  function randomNumber(allPatternIDs) {
-    var randomNums = [];
+  function randomNumber() {
+    randomNums = [];
     for (let i = 0; i < 6; i++) {
       randomNums.push(Math.floor(Math.random() * allPatternIDs.length));
     }
-    allPatterns(allPatternIDs,randomNums);
+    allPatterns();
   }
 
   //Returns the information for 6 selected patterns
-  function allPatterns (allPatternIDs,randomNums) {
-    var allPatterns = [];
+  function allPatterns () {
+    allPatterns = [];
     for (let i = 0; i < randomNums.length; i++) {
       outputFunction(allPatternIDs[randomNums[i]], function(data) {
         allPatterns.push(data);

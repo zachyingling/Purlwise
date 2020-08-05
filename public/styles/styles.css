@@ -141,26 +141,37 @@ li.purlwiseLogo a {
   font-weight: 900;
   color: var(--yellow);
   font-size: 20px;
+  text-shadow: 0 0 7px rgba(7,7,7,0.4);
 }
 
 .list-group-item {
   line-height: 2.5;
 }
 
-/* Cards on Generate and Profile Layouts */
-.project-item, .buttons {
+/* Cards on Generate and Profile Layouts*/
+.project-item {
+  display: grid;
+  padding: 1rem;
+  grid-template-columns: repeat(2, 1fr);
+  grid-row-gap: 1rem;
+}
+
+.buttons {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
+.card-body {
+  padding: 10px !important;
+}
+
 .card-properties {
   position: relative;
-  flex: 1;
-  width: 400px;
-  height: 500px;
+  height: 400px;
   margin: 0.5rem 1rem;
   box-shadow: 0 0 35px rgba(7,7,7,0.95);
+  border-radius: 8px;
 } 
 
 .card-properties:hover {
@@ -178,6 +189,8 @@ li.purlwiseLogo a {
   object-fit: cover;
   height: 300px;
   overflow: hidden;
+  border-top-right-radius: 8px;
+  border-top-left-radius: 8px;
 }
 
 .logo-image {
@@ -197,6 +210,8 @@ li.purlwiseLogo a {
 
 .btn-purl:hover{
   color: rgb(237, 237, 237);
+  box-shadow: 0 0 8px rgba(7,7,7,0.2);
+  transform: scale(1.1);
 }
 
 .whiteBack {
@@ -248,9 +263,14 @@ label {
   margin-bottom: -5px;
 }
 
-#submit {
+#submit, #next {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 90%;
-  margin: 0 auto;
+  margin: 10px auto;
+  font-size: 30px;
+  padding: 5px;
 }
 
 #generatePatterns{
@@ -336,6 +356,17 @@ button:focus {
 /* Media Queries */
 /* Generate Form */
 @media screen and (max-width: 900px) {
+  body {
+    font-size: 16px;
+    line-height: 1.4rem;
+    letter-spacing: 1px;
+  }
+
+  li.purlwiseLogo, .active {
+    font-size: 18px;
+    font-weight: 700;
+  }
+
   #form-container {
     display: inline-block;
   }
