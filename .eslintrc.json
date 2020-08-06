@@ -20,7 +20,7 @@
     "no-empty": "error",
     "no-extra-semi": "error",
     "no-func-assign": "error",
-    // "no-irregular-whitespace": "error",
+    "no-irregular-whitespace": "error",
     "no-unreachable": "error",
     "curly": "error",
     "dot-notation": "error",
@@ -32,6 +32,6 @@
     "indent": ["error", 2],
     "quotes": ["error", "double"],
     "semi": ["error", "always"],
-    // "prettier/prettier": "error"
+    "prettier/prettier": "error"
   }
 }
