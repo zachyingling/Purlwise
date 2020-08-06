@@ -181,7 +181,7 @@ li.purlwiseLogo a {
 
 .card-properties {
   position: relative;
-  height: 400px;
+  height: 410px;
   margin: 0.5rem 1rem;
   box-shadow: 0 0 35px rgba(7,7,7,0.95);
   border-radius: 8px;
@@ -238,6 +238,7 @@ li.purlwiseLogo a {
 
 .whiteBack {
   background: var(--white);
+  border-radius: 8px;
 }
 
 .purpBack {
@@ -256,6 +257,8 @@ li.purlwiseLogo a {
 
 #noPatterns {
   padding: 20px;
+  margin-top: 15%;
+  border-radius: 8px;
   width: 100%;
   text-align: center;
   background: var(--purp);
@@ -429,6 +432,14 @@ button:focus {
 }
 
 @media screen and (max-width: 660px) {
+  .project-item {
+    display: inline-block;
+    margin: 20px;
+  }
+  .card-properties:hover {
+    transform: scale(0.98);
+  }
+  
   #form-container {
     display: inline-block;
   }
