@@ -72,7 +72,6 @@ module.exports = function(app) {
 
     db.Pattern.destroy({ where: { patternId: patternId, UserUid: UserUid } })
       .then(() => {
-
         res.send("destroyed");
       })
       .catch(err => res.send("Error: " + err));

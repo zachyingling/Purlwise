@@ -41,7 +41,7 @@ module.exports = (knitOrCrochet, yarnWeight, articleOfClothing, cb) => {
   }
 
   //Returns the information for 6 selected patterns
-  function allPatterns () {
+  function allPatterns() {
     let allPatterns = [];
     for (let i = 0; i < randomNums.length; i++) {
       outputFunction(allPatternIDs[randomNums[i]], function(data) {
