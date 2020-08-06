@@ -50,7 +50,7 @@ $(document).ready(() => {
         .addClass("d-block");
     }
 
-  })
+  });
 
   $("#generatePatterns").on("click", function(event) {
     event.preventDefault();
