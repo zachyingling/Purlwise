@@ -1,10 +1,10 @@
 $(document).ready(() => {
   $(".unsave-btn").on("click", function() {
     let patternID = $(this).attr("data-id");
-
     $.ajax({
       url: "/api/patterns",
       method: "PUT",
+      async: true,
       data: {
         id: patternID
       }
