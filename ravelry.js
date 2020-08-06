@@ -18,6 +18,7 @@ module.exports = (knitOrCrochet, yarnWeight, articleOfClothing, cb) => {
         page_size: 200
       })
       .then(results => {
+        allPatternIDs = [];
         for (let i = 0; i < results.patterns.length; i++) {
           if (results.patterns[i].free === true) {
             var idGettingPushedBeforeSorted = results.patterns[i].id;
@@ -76,5 +77,5 @@ module.exports = (knitOrCrochet, yarnWeight, articleOfClothing, cb) => {
       });
   };
 
-  return startFunction(knitOrCrochet, yarnWeight, articleOfClothing);
+  return startFunction(knitOrCrochet, yarnWeight, articleOfClothing || err);
 };
