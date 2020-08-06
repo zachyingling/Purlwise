@@ -11,7 +11,7 @@ $(document).ready(() => {
     })
       .then(response => {
         if (response === "destroyed") {
-          alert("Pattern unsaved.");
+          // alert("Pattern unsaved.");
           location.reload(true);
         } else {
           alert("Error unsaving pattern.");

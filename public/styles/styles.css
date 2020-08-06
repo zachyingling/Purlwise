@@ -69,6 +69,14 @@ h1 {
   letter-spacing: -0.8px;
   text-shadow: 0 0 5px rgba(7,7,7,0.6);}
 
+h5 {
+  font-family: 'Raleway', sans-serif;
+  text-align: center;
+  font-weight: 700;
+  line-height: 18px;
+  font-size: 20px;
+}
+
 /* Nav Bar */
 
 body.fixed-nav .site-wrap {
@@ -178,6 +186,7 @@ li.purlwiseLogo a {
 
 .card-properties:hover {
   box-shadow: 0 0 18px rgba(7,7,7,1);
+  transform: scale(1.05);
 }
 
 .profImg {
@@ -254,6 +263,7 @@ li.purlwiseLogo a {
   margin: 5px;
   border-radius: 5px;
   padding: 5px;
+  cursor: pointer;
 }
 
 .form-options:focus {
@@ -300,6 +310,10 @@ button:hover {
 a:link, a:focus, a:active, a:visited {
   color: white;
   text-decoration: none;
+}
+
+#noStyle {
+  color: black;
 }
 
 button:focus {

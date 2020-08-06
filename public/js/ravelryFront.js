@@ -1,4 +1,5 @@
 $(document).ready(() => {
+
   $(".save-btn").on("click", function() {
     var patternId = $(this).attr("data-id");
     var idValue = $(this).attr("id");
@@ -23,11 +24,10 @@ $(document).ready(() => {
         alert("Error saving. Error code: " + errorThrown);
       }
     }).then(function(data) {
-      // console.log(data);
       if (data.saved === "done") {
-        alert("Saved pattern");
+        alert(`Saved ${nameValue} by ${authorName}.`);
       } else if (data.saved === "already") {
-        alert("You have already saved this pattern");
+        alert(`You have already saved ${nameValue} by ${authorName}.`);
       } else if (data.saved === "error") {
         alert("Error saving the pattern to your profile");
       }
