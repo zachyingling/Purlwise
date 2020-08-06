@@ -6,7 +6,7 @@ module.exports = function(app) {
   //Zach's route
   app.get("/api/patterns", function(req, res) {
     ravelry(
-      req.query.knitOrCrotchet,
+      req.query.knitOrCrochet,
       req.query.yarnWeight,
       req.query.articleOfClothing,
       function(data) {
