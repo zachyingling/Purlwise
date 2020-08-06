@@ -322,11 +322,12 @@ button:focus {
 /* All spinner code copied from here https://stackoverflow.com/questions/6091253/overlay-with-spinner/20013732 */
 .spinner {
   position: absolute;
-  left: 50%;
+  left: 48%;
   top: 50%;
   height:60px;
   width:60px;
-  margin:0px auto;
+  margin-top:120px;
+
   -webkit-animation: rotation .6s infinite linear;
   -moz-animation: rotation .6s infinite linear;
   -o-animation: rotation .6s infinite linear;
