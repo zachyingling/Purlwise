@@ -61,13 +61,20 @@ body {
   color: var(--purp);
 }
 
-
 h1 {
   text-align: center;
   color: whitesmoke;
   font-family: 'Lato', sans-serif;
   letter-spacing: -0.8px;
   text-shadow: 0 0 5px rgba(7,7,7,0.6);}
+
+h5 {
+  font-family: 'Raleway', sans-serif;
+  text-align: center;
+  font-weight: 700;
+  line-height: 18px;
+  font-size: 20px;
+}
 
 /* Nav Bar */
 
@@ -108,6 +115,8 @@ nav li {
   display: flex;
   justify-content: center;
   align-items: center;
+  font-size: 22px;
+  font-weight: 500;
 }
 
 li.purlwiseLogo {
@@ -115,8 +124,8 @@ li.purlwiseLogo {
   overflow: hidden;
   background: whitesmoke;
   transition: all 1s;
-  font-weight: 600;
-  font-size: 30px;
+  font-weight: 900;
+  font-size: 32px;
 }
 
 li.purlwiseLogo a {
@@ -162,10 +171,12 @@ li.purlwiseLogo a {
   display: flex;
   justify-content: center;
   align-items: center;
+  border: 5px solid rgba(0,0,0,0);
 }
 
 .card-body {
-  padding: 10px !important;
+  padding: 0 !important;
+  text-align: center;
 }
 
 .card-properties {
@@ -178,6 +189,15 @@ li.purlwiseLogo a {
 
 .card-properties:hover {
   box-shadow: 0 0 18px rgba(7,7,7,1);
+  transform: scale(1.05);
+}
+
+.card-title {
+  background: var(--purp);
+  box-shadow: 5px 0 5px rgba(7,7,7,0.2);
+  color: white;
+  width: 100%;
+  padding: 10px;
 }
 
 .profImg {
@@ -230,9 +250,18 @@ li.purlwiseLogo a {
   background: var(--green);
 }
 
+.save-btn {
+  border: 6px solid rgba(0,0,0,0);
+}
+
 #noPatterns {
-  margin: 5% 10%;
+  padding: 20px;
+  width: 100%;
   text-align: center;
+  background: var(--purp);
+  color: white;
+  font-size: 20px;
+  line-height: 25px;
 }
 
 /* Genereate Form */
@@ -254,6 +283,7 @@ li.purlwiseLogo a {
   margin: 5px;
   border-radius: 5px;
   padding: 5px;
+  cursor: pointer;
 }
 
 .form-options:focus {
@@ -300,6 +330,7 @@ button:hover {
 a:link, a:focus, a:active, a:visited {
   color: white;
   text-decoration: none;
+  border: 8px solid rgba(0,0,0,0);
 }
 
 button:focus {
@@ -365,8 +396,8 @@ button:focus {
     letter-spacing: 1px;
   }
 
-  li.purlwiseLogo, .active {
-    font-size: 18px;
+  li.purlwiseLogo {
+    font-size: 26px;
     font-weight: 700;
   }
 
