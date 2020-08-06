@@ -175,8 +175,9 @@ li.purlwiseLogo a {
 }
 
 .card-body {
-  padding: 0 !important;
+  padding: 0 0 10px 0 !important;
   text-align: center;
+
 }
 
 .card-properties {
