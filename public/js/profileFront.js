@@ -1,11 +1,6 @@
 $(document).ready(() => {
-
-  let pattern = document.querySelector('#patternUnsave');
-
-
-  function patternUnsave() {
+  $(".unsave-btn").on("click", function() {
     let patternID = $(this).attr("data-id");
-    console.log(patternID);
 
     $.ajax({
       url: "/api/patterns",
@@ -24,7 +19,5 @@ $(document).ready(() => {
         }
       })
       .catch(err => console.log(err));
-  };
-
-  pattern.addEventListener('click', patternUnsave);
+  });
 });
