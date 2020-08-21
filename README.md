@@ -7,10 +7,10 @@ When embarking on handmade projects it can be easy to overspend, overcommit and 
 * HTML/CSS
 * Handlebars.js
 * Ravelry API
-* Express
-* Passport
+* Express.js
+* Passport-Github2
 * MySQL
-* Sequelize
+* Sequelize ORM
 * Travis CI
 
 ### Link
