@@ -1,5 +1,4 @@
 $(document).ready(() => {
-
   $(".save-btn").on("click", function() {
     var patternId = $(this).attr("data-id");
     var idValue = $(this).attr("id");
